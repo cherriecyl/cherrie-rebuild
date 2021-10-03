@@ -85,6 +85,13 @@ const Lightbox = ({ boxClass, imgClass, src, alt, showcap }) => {
         setShowDialog(false);
         e.currentTarget.blur();
     }
+    
+    const unfocus = () => {
+        let button = document.getElementById('button');
+        if (button !== null)
+            button.blur();
+    }
+
     return ( 
         <div className={boxClass}>      
             <PreviewButton type="button" onClick={open}>
@@ -92,9 +99,9 @@ const Lightbox = ({ boxClass, imgClass, src, alt, showcap }) => {
             </PreviewButton>
             
             <LightboxDialogOverlay isOpen={showDialog} onDismiss={close}>     
-                <LightboxDialogContent allowPinchZoom={true}> 
+                <LightboxDialogContent allowPinchZoom={true} onLoad={unfocus}> 
                     <div>
-                        <button onClick={close}>
+                        <button id="button" onClick={close}>
                             <VisuallyHidden>Close</VisuallyHidden>
                             <span aria-hidden>×</span>
                         </button>
