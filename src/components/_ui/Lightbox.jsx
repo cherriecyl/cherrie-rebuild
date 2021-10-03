@@ -48,6 +48,8 @@ const PreviewButton = styled("button")`
 
 const LightboxDialogContent = styled(DialogContent)`
     padding: 0em;
+    width: 70vw;
+    max-width: 1024px;
     background: none;
     figure > div {
         background: white;
@@ -68,6 +70,9 @@ const LightboxDialogContent = styled(DialogContent)`
             color: white;
             cursor: pointer;
         }
+    }
+    @media(max-width: ${(props) => props.theme.maxwidthTablet}) {
+        width: 90vw;
     }
 `
 
