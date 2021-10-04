@@ -345,16 +345,6 @@ export const pageQuery = graphql`
                           box_body {
                             html
                           }
-                          box_icon {
-                            localFile {
-                              childImageSharp {
-                                fluid(maxWidth: 375) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                              }
-                            }
-                            alt
-                          }
                           box_title {
                             text
                           }
@@ -579,11 +569,12 @@ export const pageQuery = graphql`
                       primary {
                         section_id
                         section_large_subtitle {
-                          text
+                          html
                         }
                         section_overline {
                           text
                         }
+                        background
                       }
                     }
                     ... on PrismicWorkBodySectionProcessStart {
