@@ -50,6 +50,9 @@ const ImgWithCaptionWrap = styled("figure")`
             position: relative;
         }
     }
+    &.border > div {
+        border: 3px solid ${(props) => props.theme.colors.grey200}; 
+    }
 `
 
 const ImgWithCaption = ({ className, src, alt, showcap }) => {
