@@ -92,7 +92,6 @@ const Work = ({ data: { prismicWork }, location }) => {
                         } */}
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
           </Header>
-          <Carousel/>
           <main>
           <ProjectSection id="details" className="thin">
               <GridWrap className="columngapS rowgapS">
@@ -435,6 +434,62 @@ export const pageQuery = graphql`
                             text
                           }
                         }
+                    }
+                    ... on PrismicWorkBodySectionOverlineHeaderCarousel {
+                      id
+                      slice_type
+                      primary {
+                        background
+                        body_text {
+                          html
+                        }
+                        section_id
+                        section_large_subtitle {
+                          text
+                        }
+                        section_overline {
+                          text
+                        }
+                      }
+                      items {
+                        image_collection {
+                          document {
+                            data {
+                              image_collection {
+                                image {
+                                  alt
+                                  localFile {
+                                    childImageSharp {
+                                      fluid(maxWidth: 1024) {
+                                        ...GatsbyImageSharpFluid
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        image {
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                  ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                          alt
+                        }
+                        grid_definition {
+                          text
+                        }
+                        img_class {
+                          text
+                        }
+                        body_text {
+                          html
+                        }
+                      }
                     }
                     ... on PrismicWorkBodySectionHeaderSlideInCards1 {
                         id
