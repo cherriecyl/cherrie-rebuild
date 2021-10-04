@@ -14,5 +14,6 @@ import SectionStickySlideIn from './SectionStickySlideIn'
 import SectionHMW from './SectionHMW'
 import SectionPrototype from './SectionPrototype'
 import SectionProcessStart from './SectionProcessStart'
+import SectionOverlineHeaderCarousel from './SectionOverlineHeaderCarousel'
 
-export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionHeaderWithQuote, SectionOverlineHeaderImages, SectionStickySlideIn, SectionHMW, SectionPrototype, SectionProcessStart }
+export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionHeaderWithQuote, SectionOverlineHeaderImages, SectionStickySlideIn, SectionHMW, SectionPrototype, SectionProcessStart, SectionOverlineHeaderCarousel }
