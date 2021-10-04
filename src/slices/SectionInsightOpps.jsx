@@ -1,13 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ProjectSection, GridWrap, TextBox } from '../components'
-import Img from 'gatsby-image';
-import styled from "@emotion/styled";
-
-const IconContainer = styled("div")`
-    max-width:270px;
-    margin-bottom: 1.5em;
-`
 
 
 const SectionInsightOpps = ({ input }) => (
@@ -22,9 +15,6 @@ const SectionInsightOpps = ({ input }) => (
           {input.items.map((item, index) => (
 
             <TextBox className={`${item.box_background}` + ` grid4L grid5I grid12T` + `${ index % 2 ? '': ` start3L start2I start1T`}` }>
-              <IconContainer>
-                  <Img fluid={item.box_icon.localFile.childImageSharp.fluid} alt={item.box_icon.alt}/>
-              </IconContainer>
               <h4>{item.box_title.text}</h4>
               <div dangerouslySetInnerHTML={ { __html: item.box_body.html} } />
             </TextBox>
