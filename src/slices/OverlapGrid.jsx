@@ -47,9 +47,9 @@ const OverlapGrid = ({ input, gridLayouts }) => (
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
           {input.items.map((item, index) => {
               const gridLayouts = [
-                {lbox: 'grid5L start6L start5I grid8I grid11M start2M overlapTop', img: 'topCaption stretch',text:'grid5L start3L start1I grid8I grid11M overlapBottom middle'},
-                {lbox:'grid5L start3L grid8I start1I grid11M overlapTop',img:'topCaption stretch',text:'grid5L start6L grid12T start5I grid8I grid11M start2M overlapBottom middle'},
-                {lbox:'grid5L start6L grid6I start6I grid10M start3M overlapBottom', img:'stretch',text:'grid5L start3L grid6I start2I grid10M overlapTop middle'},
+                {lbox: 'grid5L start6L grid6I start5T grid8T grid11M start2M overlapTop', img: 'topCaption stretch',text:'grid5L start3L start2I grid6I start1T grid8T grid11M overlapBottom middle'},
+                {lbox:'grid5L start3L grid8T start1T start2I grid6I grid11M overlapTop',img:'topCaption stretch',text:'grid5L start6L grid6I start5T grid8T grid11M start2M overlapBottom middle'},
+                {lbox:'grid5L start6L grid6I grid8T start5T grid10M start3M overlapBottom', img:'stretch',text:'grid5L start3L start2I grid6I grid8T start1T grid10M overlapTop middle'},
               ];
               const gridStyle = gridLayouts[index];
               return (
