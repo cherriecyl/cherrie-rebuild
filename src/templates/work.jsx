@@ -373,58 +373,6 @@ export const pageQuery = graphql`
                           background
                         }
                     }
-                    ... on PrismicWorkBodyBanner {
-                        id
-                        slice_type
-                        primary {
-                          image {
-                            alt
-                            localFile {
-                              childImageSharp {
-                                fluid(maxWidth: 2000) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                              }
-                            }
-                          }
-                          figcaption
-                        }
-                    }
-                    ... on PrismicWorkBodySectionOverlineHeaderImages {
-                        id
-                        slice_type
-                        primary {
-                          background
-                          body_text {
-                            html
-                          }
-                          section_id
-                          section_large_subtitle {
-                            text
-                          }
-                          section_overline {
-                            text
-                          }
-                        }
-                        items {
-                          image {
-                            localFile {
-                              childImageSharp {
-                                fluid(maxWidth: 1024) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                              }
-                            }
-                            alt
-                          }
-                          grid_definition {
-                            text
-                          }
-                          img_class {
-                            text
-                          }
-                        }
-                    }
                     ... on PrismicWorkBodySectionOverlineHeaderCarousel {
                       id
                       slice_type
@@ -480,41 +428,6 @@ export const pageQuery = graphql`
                           html
                         }
                       }
-                    }
-                    ... on PrismicWorkBodySectionHeaderSlideInCards1 {
-                        id
-                        slice_type
-                        primary {
-                          background
-                          section_large_subtitle {
-                            text
-                          }
-                          section_overline {
-                              text
-                          }
-                          body_text {
-                            html
-                          }
-                        }
-                        items {
-                          box_title {
-                            text
-                          }
-                          image {
-                            localFile {
-                              childImageSharp {
-                                fluid(maxWidth: 1024) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                              }
-                            }
-                            alt
-                          }
-                          box_body {
-                            html
-                          }
-                          figcaption
-                        }
                     }
                     ... on PrismicWorkBodySectionPrototypeInAction {
                       id
