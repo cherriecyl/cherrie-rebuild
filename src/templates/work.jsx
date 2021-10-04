@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, TextBox, CollapseWrap, ProjectSection, Banner, FadeUp, ImgWithCaption, PrototypeContainer, Lightbox } from '../components'
+import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, TextBox, CollapseWrap, ProjectSection, Banner, FadeUp, ImgWithCaption, PrototypeContainer, Carousel } from '../components'
 import website from '../../config/website'
 import Img from 'gatsby-image'
 
@@ -92,6 +92,7 @@ const Work = ({ data: { prismicWork }, location }) => {
                         } */}
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
           </Header>
+          <Carousel/>
           <main>
           <ProjectSection id="details" className="thin">
               <GridWrap className="columngapS rowgapS">
@@ -428,6 +429,9 @@ export const pageQuery = graphql`
                             alt
                           }
                           grid_definition {
+                            text
+                          }
+                          img_class {
                             text
                           }
                         }

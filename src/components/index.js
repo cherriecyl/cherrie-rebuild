@@ -27,5 +27,6 @@ import Quote from './_ui/Quote'
 import FadeUp from './_ui/FadeUp'
 import PrototypeContainer from './_ui/PrototypeContainer'
 import Lightbox from './_ui/Lightbox'
+import Carousel from './_ui/Carousel'
 
-export { Footer, Layout, Listing, SEO, Wrapper, SliceZone, WorkSliceZone, Title, Header, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome, Logo, ProjectLayout, Button, GridWrap, TextBox, CollapseWrap, ProjectSection, ImgContainer, VideoWithCaption, ImgWithCaption, Banner, Quote, FadeUp, PrototypeContainer, Lightbox}
+export { Footer, Layout, Listing, SEO, Wrapper, SliceZone, WorkSliceZone, Title, Header, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome, Logo, ProjectLayout, Button, GridWrap, TextBox, CollapseWrap, ProjectSection, ImgContainer, VideoWithCaption, ImgWithCaption, Banner, Quote, FadeUp, PrototypeContainer, Lightbox, Carousel}
