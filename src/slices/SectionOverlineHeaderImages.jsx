@@ -12,7 +12,7 @@ const SectionOverlineHeaderImages = ({ input }) => (
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
           {input.items.map((item) => (
-                  <Lightbox className={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+                  <Lightbox boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
           ))}
       </GridWrap>
   </ProjectSection>
