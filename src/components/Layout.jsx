@@ -105,7 +105,7 @@ const typeStyle = css`
       color: ${theme.colors.grey600};
       font-weight: 600;
       line-height: 1.4;
-      font-size: 0.8em;
+      font-size: 0.85em;
       margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -128,7 +128,7 @@ const globalStyle = css`
     body {
         width: 100%;
         margin: 0 auto;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.5;
         color: ${theme.colors.grey900};
         -webkit-font-smoothing: antialiased;
