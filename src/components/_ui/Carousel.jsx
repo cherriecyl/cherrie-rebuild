@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import styled from "@emotion/styled";
 // import PropTypes from "prop-types";
-import ImgWithCaption from './ImgWithCaption';
 import Lightbox from './Lightbox';
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import Carousel, { Dots, autoplayPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
 const CarouselContainer = styled("div")`
     max-width: 100%;
     .BrainhubCarouselItem > div {
         width: 100%;
-        padding: 1em;
+        margin: 1em;
     }
     .BrainhubCarousel__arrows {
         background: none;
@@ -29,12 +28,10 @@ const CarouselContainer = styled("div")`
     }
 `
 
-const MyCarousel = ({ className, input }) => (
+const MyCarousel = ({ children, className, plugins, animationSpeed }) => (
     <CarouselContainer className={className}>
-        <Carousel plugins={['arrows']}>
-            {input.map((item) => (
-                <Lightbox src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} imgClass="centerCaption"/>
-            ))}
+        <Carousel plugins={plugins} animationSpeed={animationSpeed}>
+            {children}
         </Carousel>
     </CarouselContainer>
   );
