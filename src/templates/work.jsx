@@ -12,30 +12,28 @@ const Header = styled("header")`
 `
 
 const HeroText = styled("div")`
-    text-align:center;
-    max-width: 700px;
-    margin: auto;
+    text-align:left;
+    max-width: 600px;
     margin-top: 2em;
     margin-bottom: 4em;
+    font-size: 1.05em;
     h1 {
-        font-size: 2.5em;
+        font-size: 2.7em;
         margin-top: 1rem;
         margin-bottom: 1rem;
         @media(max-width:${(props) => props.theme.maxwidthiPadPro}) {
-          font-size: 2.3em;
+          font-size: 2.5em;
         }
 
         @media(max-width:${(props) => props.theme.maxwidthTablet}) {
-            font-size: 2em;
+            font-size: 2.2em;
         }
 
         @media(max-width:${(props) => props.theme.maxwidthMobile}) {
             font-size: 2em;
         }
     }
-    p {
-      font-size: 1.1em;
-    }
+    
 `
 const ProtoWrap = styled("div")`
     z-index: 2;
@@ -80,7 +78,7 @@ const Work = ({ data: { prismicWork }, location }) => {
                   </span>
                   <h1>{data.project.text}</h1>
                   <p className="focus">{data.title.text}</p>
-              </HeroText>
+                </HeroText>
                         {/* { `${data.title.text} == mobile` ? 
                             <ProtoWrap className="grid4L start5L grid10T start2T" >
                               <FadeUp delay="1">
@@ -94,26 +92,26 @@ const Work = ({ data: { prismicWork }, location }) => {
           </Header>
           <main>
           <ProjectSection id="details" className="thin">
-              <GridWrap className="columngapS rowgapS">
-                    <TextBox className="beige grid6L grid12I row2">
+              <GridWrap>
+                    <div className="grid6L grid12I row2">
                         <p className="focus">{data.spec_brief_header.text}</p>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_brief.html}}/>
-                    </TextBox>
-                    <TextBox className="grid3L grid6I grid12M projectSpecs">
+                    </div>
+                    <div className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Role &amp; Timeline</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.client_timeframe.html}}/>
-                    </TextBox>
-                    <TextBox className="grid3L grid6I grid12M projectSpecs">
-                        <h2 className="overline">Responsibilities</h2>
+                    </div>
+                    <div className="grid3L grid6I grid12M projectSpecs">
+                        <h2 className="overline">Scope</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_role.html}}/>
-                    </TextBox>
-                    <TextBox className="grid3L grid6I grid12M projectSpecs">
+                    </div>
+                    <div className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Team</h2>
                         <CollapseWrap className="inline" id="team" labeltext={data.spec_team.text}>
                             <div dangerouslySetInnerHTML={{ __html: data.spec_team_description.html}}/>
                         </CollapseWrap>
-                    </TextBox>
-                    <TextBox className="grid3L grid6I grid12M projectSpecs">
+                    </div>
+                    <div className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">See it live</h2>
                         {data.spec_links.map((link) => (
                             <p key={link.link_label.text}>
@@ -123,7 +121,7 @@ const Work = ({ data: { prismicWork }, location }) => {
                             </p>
                             )
                         )}
-                    </TextBox>
+                    </div>
               </GridWrap>
           </ProjectSection>
           <WorkSliceZone allSlices={data.body} />
@@ -216,6 +214,7 @@ export const pageQuery = graphql`
                       slice_type
                       primary {
                         section_id
+                        background
                         header_image {
                           localFile {
                             id
@@ -499,6 +498,69 @@ export const pageQuery = graphql`
                           text
                         }
                         background
+                      }
+                    }
+
+                    ... on PrismicWorkBodySectionHeaderSlideInCards1 {
+                      id
+                      slice_type
+                      primary {
+                        section_overline {
+                          text
+                        }
+                        body_text {
+                          html
+                        }
+                        background
+                        grid_definition {
+                          text
+                        }
+                        image {
+                          alt
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                        section_id
+                        section_large_subtitle {
+                          text
+                        }
+                        slides {
+                          document {
+                            data {
+                              slides {
+                                body_text {
+                                  html
+                                }
+                                left_image {
+                                  localFile {
+                                    childImageSharp {
+                                      fluid(maxWidth: 1024) {
+                                        ...GatsbyImageSharpFluid
+                                      }
+                                    }
+                                  }
+                                  alt
+                                }
+                                right_image {
+                                  alt
+                                  localFile {
+                                    childImageSharp {
+                                      fluid(maxWidth: 1024) {
+                                        ...GatsbyImageSharpFluid
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                        textbox_style
                       }
                     }
                 }
