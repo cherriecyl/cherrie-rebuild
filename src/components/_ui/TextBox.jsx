@@ -42,18 +42,6 @@ const TextWrap = styled("div")`
             margin: 0;
         }
     }
-    &.projectSpecs {
-        p {
-            font-size: 0.9em;
-        }
-        li {
-            font-size: 0.9em;
-        }
-        @media(max-width:${(props)=>props.theme.maxwidthMobile}) {
-            padding-top: 1em;
-            padding-bottom: 1em;
-        }
-    }
 `
 const TextBox = ({ className, children }) => {
     return (
