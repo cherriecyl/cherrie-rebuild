@@ -87,7 +87,7 @@ const ProjectLayoutContainer = styled("div")`
         font-family: 'Manrope', 'Inter', sans-serif;
     }
     .focus {
-        font-size: 1.2em;
+        font-size: 1.35em;
         line-height: 1.6;
         margin-top: 0;
         color: ${(props) => props.theme.colors.grey700};
@@ -137,6 +137,15 @@ const ProjectLayoutContainer = styled("div")`
     }
     .title {
         margin-top: 0;
+    }
+    .projectSpecs {
+        p {
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+        li {
+            font-size: 0.9em;
+        }
     }
 `
 const WorkLink = styled(Link)`
