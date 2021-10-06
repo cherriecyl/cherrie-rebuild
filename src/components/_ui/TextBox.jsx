@@ -11,6 +11,9 @@ const TextWrap = styled("div")`
         margin-bottom: 0em;
         margin-top: 1em;
     }
+    h4 {
+        margin-top:0em;
+    }
     .noTitle {
         p:nth-child(1) {
             margin-top: 0em;
@@ -29,7 +32,7 @@ const TextWrap = styled("div")`
         background-color: white;
     }
     &.shadow {
-        box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.07);
+        box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.04);
     }
     &.results {
         text-align: center;
