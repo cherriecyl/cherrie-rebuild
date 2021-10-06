@@ -1,30 +1,78 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeading,
+    AccordionItemButton,
+    AccordionItemPanel,
+  } from 'react-accessible-accordion';
 
 const CollapseWrapStyle = styled("div")`
-    input[type='checkbox'] {
-        display: none;
+    .accordion__button:hover {
+        color: ${(props) => props.theme.colors.green900};
     }
-    .lblToggle {
+    .accordion__button {
         display: flex;
         align-items: center;
         transition: all 0.25s ease-out;
         cursor: pointer;
-        p {
-            margin-right: 0.5em;
+        h4 {
+            margin-bottom: 0
         }
     }
-    .lblToggle:hover {
-        color: ${(props) => props.theme.colors.green900};
+    &.team {
+        .accordion__button {
+            font-size: 0.9em;
+            margin: 0;
+            line-height: 1.9;
+            display: inline-block;
+            p {
+                margin-right: 0.5em;
+            }
+        }
+        .accordion__button::after {
+            content: '+';
+            font-size: 2em;
+            margin-left: auto;
+            transition: transform 300ms ease-out;
+            transform-origin: center;
+            font-size: 1em;
+            display: inline-block;
+            margin-left: 0.4em;
+        }
+        .collapsibleContent {
+            color: ${(props) => props.theme.colors.grey700};
+            font-size: 0.95em;
+        }
+
     }
-    .lblToggle::after {
-        content: '+';
-        font-size: 2em;
-        margin-left: auto;
-        transition: transform 400ms ease-out;
-        transform-origin: center;
+    &.insights {
+        .accordion__button:before {
+            display: inline-block;
+            content: '';
+            height: 10px;
+            width: 10px;
+            margin-right: 12px;
+            border-bottom: 2px solid ${(props) => props.theme.colors.grey600};
+            border-right: 2px solid ${(props) => props.theme.colors.grey600};
+            transform: rotate(-45deg);
+            transition: all 0.25s ease-out;
+        }
+        .accordion__button:hover:before {
+            border-bottom: 2px solid ${(props) => props.theme.colors.green900};
+            border-right: 2px solid ${(props) => props.theme.colors.green900};
+        }
     }
+    
+    .accordion__button[aria-expanded='true']::before,
+    .accordion__button[aria-selected='true']::before,
+    .accordion__button[aria-expanded='true']::after,
+    .accordion__button[aria-expanded='true']::after {
+        transform: rotate(45deg) translateY(-2.5%) translateX(2.5%);
+    }
+
     .collapsibleContent {
         a {
             border-bottom: 1px solid currentColor;
@@ -33,48 +81,33 @@ const CollapseWrapStyle = styled("div")`
                 background-color: ${(props) => props.theme.colors.green100};
             }
         }
-        max-height: 0px;
-        overflow: hidden;
-        transition: max-height 200ms ease-in-out;
         h3 {
             font-size: 0.9em;
             margin-top: 1em;
             margin-bottom: 0.5em;
             font-family: 'Inter', sans-serif;
         }
-        font-size: 0.95em;
     }
-    .toggle:checked + .lblToggle + .collapsibleContent {
-        max-height: 100vh;
-    }
-    .toggle:checked + .lblToggle::after {
-        transform: rotate(45deg) translateY(-2.5%) translateX(2.5%);
-    }
-    &.inline {
-        .lblToggle {
-            font-size: 0.9em;
-            margin: 0;
-            line-height: 1.9;
-            display: inline-block;
-        }
-        .lblToggle::after {
-            font-size: 1em;
-            display: inline-block;
-            margin-left: 0.4em;
-        }
+    [hidden] {
+        display: none;
     }
 `
 
-const CollapseWrap = ({ className, labeltext, id, children }) => {
+const CollapseWrap = ({ className, labeltext, children }) => {
     return (
     <CollapseWrapStyle className={`${className}`}>
-        <input name={id} id={id} className="toggle" type="checkbox"/>
-        <label htmlFor={id} className="lblToggle">
-            {labeltext}
-        </label>
-        <div className="collapsibleContent brown">
-            {children}
-        </div>
+        <Accordion allowZeroExpanded>
+            <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton className="accordion__button">
+                        {labeltext}
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel className="collapsibleContent">
+                    {children}
+                </AccordionItemPanel>
+            </AccordionItem>
+        </Accordion>
     </CollapseWrapStyle>
     );
   };
