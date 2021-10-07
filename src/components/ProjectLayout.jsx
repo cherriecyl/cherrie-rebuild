@@ -74,6 +74,9 @@ const ProjectLayoutContainer = styled("div")`
             transform: none;
         }
     }
+    .sectionOverline {
+        margin-top: 0.5em;
+    }
     .front {
         z-index: 3;
     }
