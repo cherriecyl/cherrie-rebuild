@@ -30,8 +30,6 @@ export default class WorkSliceZone extends Component {
           return <SectionHMW key={s.id} input={s} />
         case 'section__prototype_in_action':
             return <SectionPrototype key={s.id} input={s} />
-        case 'section__process_start':
-          return <SectionProcessStart key={s.id} input={s} />
         case 'section__overline_header_carousel':
           return <SectionOverlineHeaderCarousel key={s.id} input={s} />
         default:
