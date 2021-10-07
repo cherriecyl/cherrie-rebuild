@@ -520,7 +520,79 @@ export const pageQuery = graphql`
                         background
                       }
                     }
-                    
+                    ... on PrismicWorkBodySectionStats {
+                      id
+                      items {
+                        stat {
+                          html
+                        }
+                      }
+                      primary {
+                        body_text {
+                          html
+                        }
+                        section_id
+                        section_large_subtitle {
+                          text
+                        }
+                        section_overline {
+                          text
+                        }
+                      }
+                      slice_type
+                    }
+                    ... on PrismicWorkBodySectionThreeColumns {
+                      id
+                      slice_type
+                      primary {
+                        background
+                        body_text {
+                          html
+                        }
+                        columns_header {
+                          html
+                        }
+                        image {
+                          alt
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                        img_grid_definition {
+                          text
+                        }
+                        section_id
+                        section_large_subtitle {
+                          text
+                        }
+                        section_overline {
+                          text
+                        }
+                        text_grid_definition {
+                          text
+                        }
+                      }
+                      items {
+                        column_body {
+                          text
+                          html
+                        }
+                        image {
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                          alt
+                        }
+                      }
+                    }
                 }
             }
         }
