@@ -51,7 +51,7 @@ const ImgWithCaptionWrap = styled("figure")`
         }
     }
     &.border > div {
-        border: 3px solid ${(props) => props.theme.colors.grey200}; 
+        border: 2px solid ${(props) => props.theme.colors.grey200}; 
     }
 `
 
