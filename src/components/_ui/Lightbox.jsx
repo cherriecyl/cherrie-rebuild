@@ -111,7 +111,7 @@ const Lightbox = ({ boxClass, imgClass, src, alt, showcap }) => {
                             <span aria-hidden>×</span>
                         </button>
                     </div>
-                    <ImgWithCaption src={src} alt={alt} showcap={showcap} />       
+                    <ImgWithCaption src={src} alt={alt} />       
                 </LightboxDialogContent>     
             </LightboxDialogOverlay>    
         </div>    
