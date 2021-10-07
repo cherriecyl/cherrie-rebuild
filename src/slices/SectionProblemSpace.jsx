@@ -8,9 +8,11 @@ const SectionProblemSpace = ({ input }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
       <GridWrap>
-        <ImgContainer className="grid10L start2L grid12T start1T" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} />
-          <div className="grid8L grid12T start3L start1T grid10I start2I">
+          <div className="grid12L"><p className="focus">How did we get here?</p></div>
+          <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2>
+          </div>
+          <div className="grid8L grid12T start3L start1T grid10I start2I">
               <h3>{input.primary.section_large_subtitle.text}</h3>
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
@@ -20,6 +22,7 @@ const SectionProblemSpace = ({ input }) => (
                   <div className="brown" dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
               </div>
           ))}
+           <ImgContainer className="grid10L start2L grid12T start1T" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} />
     </GridWrap>
   </ProjectSection>
 
