@@ -45,16 +45,12 @@ const IndentedLinkContainer = styled("div")`
 const OverlapGrid = ({ input, gridLayouts }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
-          {input.items.map((item, index) => {
-              const gridLayouts = [
-                {lbox: 'grid5L start6L grid6I start5T grid8T grid11M start2M overlapTop', img: 'topCaption stretch',text:'grid5L start3L start2I grid6I start1T grid8T grid11M overlapBottom middle'},
-                {lbox:'grid5L start3L grid8T start1T start2I grid6I grid11M overlapTop',img:'topCaption stretch',text:'grid5L start6L grid6I start5T grid8T grid11M start2M overlapBottom middle'},
-                {lbox:'grid5L start6L grid6I grid8T start5T grid10M start3M overlapBottom', img:'stretch',text:'grid5L start3L start2I grid6I grid8T start1T grid10M overlapTop middle'},
-              ];
-              const gridStyle = gridLayouts[index];
+          {input.items.map((item) => {
+              const gridStyle = 
+                {lbox:'grid4L start7L grid6I grid8T start5T grid10M start3M overlapTop', img:'stretch topCption',text:'grid4L start3L start2I grid6I grid8T start1T grid10M overlapBottom middle'}
               return (
-                <GridWrap>
-                    <TextBox className={`${gridStyle.text}` + ` front` + ` ${item.box_background}`}>
+                <GridWrap className="columngapS">
+                    <TextBox className={`${gridStyle.text}` + ` front ` + ` ${item.box_background}`}>
                         <h4>{item.box_title.text}</h4>
                         <div dangerouslySetInnerHTML={{ __html: item.box_body.html} } />
                         { item.indented_link.html == null ? `` : <IndentedLinkContainer dangerouslySetInnerHTML={ { __html: item.indented_link.html} } /> }
