@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "@emotion/styled";
 // import PropTypes from "prop-types";
 import Lightbox from './Lightbox';
-import Carousel, { Dots, autoplayPlugin } from '@brainhubeu/react-carousel';
+import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
 const CarouselContainer = styled("div")`
