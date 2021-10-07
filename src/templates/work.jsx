@@ -6,14 +6,16 @@ import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, Te
 import website from '../../config/website'
 import Img from 'gatsby-image'
 
+
 const Header = styled("header")`
     padding-bottom: 1vw;
     padding-top: 1vw;
 `
 
 const HeroText = styled("div")`
-    text-align:left;
-    max-width: 600px;
+    text-align:center;
+    max-width: 700px;
+    margin: auto;
     margin-top: 2em;
     margin-bottom: 4em;
     font-size: 1.05em;
@@ -107,7 +109,7 @@ const Work = ({ data: { prismicWork }, location }) => {
                     </div>
                     <div className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Team</h2>
-                        <CollapseWrap className="inline" id="team" labeltext={data.spec_team.text}>
+                        <CollapseWrap className="team" labeltext={data.spec_team.text}>
                             <div dangerouslySetInnerHTML={{ __html: data.spec_team_description.html}}/>
                         </CollapseWrap>
                     </div>
@@ -391,10 +393,37 @@ export const pageQuery = graphql`
                       items {
                         image_collection {
                           document {
-                            data {
-                              image_collection {
-                                image {
-                                  alt
+                            ... on PrismicCarousel {
+                              data {
+                                image_collection {
+                                  image {
+                                    alt
+                                    localFile {
+                                      childImageSharp {
+                                        fluid(maxWidth: 1024) {
+                                          ...GatsbyImageSharpFluid
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            ... on PrismicVideoPrototype {
+                              data {
+                                device {
+                                  localFile {
+                                    childImageSharp {
+                                      fluid(maxWidth: 1024) {
+                                        ...GatsbyImageSharpFluid
+                                      }
+                                    }
+                                  }
+                                }
+                                video {
+                                  url
+                                }
+                                poster {
                                   localFile {
                                     childImageSharp {
                                       fluid(maxWidth: 1024) {
@@ -426,6 +455,8 @@ export const pageQuery = graphql`
                         body_text {
                           html
                         }
+                        showcap
+                        type
                       }
                     }
                     ... on PrismicWorkBodySectionPrototypeInAction {
@@ -489,80 +520,7 @@ export const pageQuery = graphql`
                         background
                       }
                     }
-                    ... on PrismicWorkBodySectionProcessStart {
-                      id
-                      slice_type
-                      primary {
-                        section_id
-                        section_large_text {
-                          text
-                        }
-                        background
-                      }
-                    }
-
-                    ... on PrismicWorkBodySectionHeaderSlideInCards1 {
-                      id
-                      slice_type
-                      primary {
-                        section_overline {
-                          text
-                        }
-                        body_text {
-                          html
-                        }
-                        background
-                        grid_definition {
-                          text
-                        }
-                        image {
-                          alt
-                          localFile {
-                            childImageSharp {
-                              fluid(maxWidth: 1024) {
-                                ...GatsbyImageSharpFluid
-                              }
-                            }
-                          }
-                        }
-                        section_id
-                        section_large_subtitle {
-                          text
-                        }
-                        slides {
-                          document {
-                            data {
-                              slides {
-                                body_text {
-                                  html
-                                }
-                                left_image {
-                                  localFile {
-                                    childImageSharp {
-                                      fluid(maxWidth: 1024) {
-                                        ...GatsbyImageSharpFluid
-                                      }
-                                    }
-                                  }
-                                  alt
-                                }
-                                right_image {
-                                  alt
-                                  localFile {
-                                    childImageSharp {
-                                      fluid(maxWidth: 1024) {
-                                        ...GatsbyImageSharpFluid
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                        textbox_style
-                      }
-                    }
+                    
                 }
             }
         }
