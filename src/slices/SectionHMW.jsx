@@ -13,9 +13,12 @@ const Wrap = styled("div")`
     font-weight: 700;
     font-family: 'Manrope', 'Inter', sans-serif;
   }
+  p {
+    margin-bottom: 0;
+  }
   li {
     text-align: left;
-    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     &::marker {
       font-family: 'Manrope', 'Inter', sans-serif;
       font-size: 1.2em;
@@ -24,17 +27,24 @@ const Wrap = styled("div")`
       color: ${(props) => props.theme.colors.grey500};
     }
   }
+  li:last-of-type {
+    margin-bottom:0;
+  }
+  ul {
+    margin-bottom: 0;
+  }
 `
 
 const SectionHMW = ({ input }) => (
 
   <ProjectSection id={input.primary.section_id} className={input.primary.background}>
-      <GridWrap className="alternatingShadow">
-          <TextBox className="middle white shadow grid6L grid8I grid10T grid12M start4L start2T start3I start1M">
-              <h2 className="overline centerText">{input.primary.section_overline.text}</h2>
-              {/* <p className="focus centerText">{input.primary.section_large_subtitle.text}</p> */}
-              <Wrap className="brown centerText" dangerouslySetInnerHTML={ { __html: input.primary.section_large_subtitle.html} } />
-          </TextBox>
+      <GridWrap>
+          <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
+              <h2 className="overline">{input.primary.section_overline.text}</h2>
+          </div>
+          <div className="grid8L grid10I grid1T start3L start2I start1T">
+              <Wrap className="brown" dangerouslySetInnerHTML={ { __html: input.primary.section_large_subtitle.html} } />
+          </div>
       </GridWrap>
   </ProjectSection>
 
