@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, Banner, FadeUp, ImgWithCaption } from '../components'
+import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, ImgWithCaption } from '../components'
 import website from '../../config/website'
-import Img from 'gatsby-image'
 
 
 const Header = styled("header")`
@@ -16,7 +15,7 @@ const HeroText = styled("div")`
     text-align:center;
     max-width: 700px;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 1.5em;
     margin-bottom: 4em;
     font-size: 1.05em;
     h1 {
@@ -34,6 +33,11 @@ const HeroText = styled("div")`
         @media(max-width:${(props) => props.theme.maxwidthMobile}) {
             font-size: 2em;
         }
+    }
+    p {
+        margin-top: 1.5em;
+        font-size: 1.18em;
+        line-height: 1.4;
     }
     
 `
@@ -62,6 +66,11 @@ const Spec = styled("div")`
   margin-bottom: 2em;
 `
 
+const OverlineWrap = styled("div")`
+    margin-bottom: 2em;
+    font-size: 0.95em;
+`
+
 const Work = ({ data: { prismicWork }, location }) => {
   const { data } = prismicWork
   return (
@@ -76,11 +85,13 @@ const Work = ({ data: { prismicWork }, location }) => {
       <ProjectLayout>
           <Header>
               <HeroText>
-                  <span className="overline">
-                      {data.overline.text}
-                  </span>
+                  <OverlineWrap>
+                    <span className="overline">
+                        {data.overline.text}
+                    </span>
+                  </OverlineWrap>
                   <h1>{data.project.text}</h1>
-                  <p className="focus">{data.title.text}</p>
+                  <p>{data.title.text}</p>
                 </HeroText>
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
           </Header>
