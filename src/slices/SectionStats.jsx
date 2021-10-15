@@ -8,20 +8,35 @@ const Stat = styled("div")`
       font-size: 1.7em;
       line-height: 1.4;
       margin-bottom: 4%;
+      color: ${(props) => props.theme.colors.grey700};
+      font-family: 'Manrope', 'Inter', sans-serif;
       @media(max-width:${(props) => props.theme.maxwidthiPadPro}) {
           font-size: 1.5em;
       }
   }
   em {
-    font-size: 1em;
-    color: ${(props) => props.theme.colors.grey900};
+      font-size: 1.35em;
+      line-height: 1.6;
+      margin-top: 0;
+      color: ${(props) => props.theme.colors.grey700};
+      font-weight: 700;
+      font-family: 'Manrope', 'Inter', sans-serif;
+      font-style: normal;
   }
+  max-width: 145px;
+`
+
+const StatWrap = styled("div")`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
 `
 
 const SectionStats = ({ input }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
-      <GridWrap className="columngapS rowgapS thickSpace">
+      <GridWrap className="columngapS">
           <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2> 
           </div>
@@ -29,11 +44,15 @@ const SectionStats = ({ input }) => (
               <h3>{input.primary.section_large_subtitle.text}</h3>
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
-          {input.items.map((item) => (
-              <TextBox className="border results grid2L start2L grid6I start1I grid12T">
-                  <Stat dangerouslySetInnerHTML={ { __html: item.stat.html} } className="focus" />
-              </TextBox>
-          ))}
+          <div className="grid12L">
+            <StatWrap>
+              {input.items.map((item) => (
+                  <TextBox className="border results">
+                      <Stat dangerouslySetInnerHTML={ { __html: item.stat.html} } className="fontsmaller" />
+                  </TextBox>
+              ))}
+            </StatWrap>
+          </div>
       </GridWrap>
   </ProjectSection>
 
