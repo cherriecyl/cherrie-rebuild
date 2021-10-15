@@ -8,11 +8,11 @@ import OverlapGrid from './OverlapGrid'
 import SectionInsightOpps from './SectionInsightOpps'
 import SectionQuote from './SectionQuote'
 import SectionBanner from './SectionBanner'
-import SectionHeaderWithQuote from './SectionHeaderWithQuote'
+import SectionLearnings from './SectionLearnings'
 import SectionStats from './SectionStats'
 import Section3Columns from './Section3Columns'
 import SectionHMW from './SectionHMW'
 import SectionPrototype from './SectionPrototype'
 import SectionOverlineHeaderCarousel from './SectionOverlineHeaderCarousel'
 
-export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionHeaderWithQuote, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel }
+export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionLearnings, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel }
