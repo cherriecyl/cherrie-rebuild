@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, TextBox, CollapseWrap, ProjectSection, Banner, FadeUp, ImgWithCaption, PrototypeContainer, Carousel } from '../components'
+import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, Banner, FadeUp, ImgWithCaption } from '../components'
 import website from '../../config/website'
 import Img from 'gatsby-image'
 
@@ -37,9 +37,6 @@ const HeroText = styled("div")`
     }
     
 `
-const ProtoWrap = styled("div")`
-    z-index: 2;
-`
 
 const ProjectLink = styled("a")`
     transition: all 150ms ease-in-out;
@@ -59,6 +56,10 @@ const ProjectLink = styled("a")`
             transition: transform 150ms ease-in-out;
         }
     }
+`
+
+const Spec = styled("div")`
+  margin-bottom: 2em;
 `
 
 const Work = ({ data: { prismicWork }, location }) => {
@@ -95,35 +96,35 @@ const Work = ({ data: { prismicWork }, location }) => {
           <main>
           <ProjectSection id="details" className="thin">
               <GridWrap>
-                    <div className="grid6L grid12I row2">
+                    <Spec className="grid6L grid12I row2">
                         <p className="focus">{data.spec_brief_header.text}</p>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_brief.html}}/>
-                    </div>
-                    <div className="grid3L grid6I grid12M projectSpecs">
+                    </Spec>
+                    <Spec className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Role &amp; Timeline</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.client_timeframe.html}}/>
-                    </div>
-                    <div className="grid3L grid6I grid12M projectSpecs">
+                    </Spec>
+                    <Spec className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Scope</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_role.html}}/>
-                    </div>
-                    <div className="grid3L grid6I grid12M projectSpecs">
+                    </Spec>
+                    <Spec className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Team</h2>
                         <CollapseWrap className="team" labeltext={data.spec_team.text}>
                             <div dangerouslySetInnerHTML={{ __html: data.spec_team_description.html}}/>
                         </CollapseWrap>
-                    </div>
-                    <div className="grid3L grid6I grid12M projectSpecs">
+                    </Spec>
+                    <Spec className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">See it live</h2>
                         {data.spec_links.map((link) => (
                             <p key={link.link_label.text}>
-                                <ProjectLink href={link.link.url}>
+                                <ProjectLink href={link.link.url} target="_blank" rel="noreferrer noopener">
                                     {link.link_label.text}
                                 </ProjectLink>
                             </p>
                             )
                         )}
-                    </div>
+                    </Spec>
               </GridWrap>
           </ProjectSection>
           <WorkSliceZone allSlices={data.body} />
@@ -528,6 +529,7 @@ export const pageQuery = graphql`
                         }
                       }
                       primary {
+                        background
                         body_text {
                           html
                         }
@@ -541,6 +543,42 @@ export const pageQuery = graphql`
                       }
                       slice_type
                     }
+                    ... on PrismicWorkBodySectionLearningsWithCollapsibles {
+                      id
+                      primary {
+                        background
+                        body_text {
+                          html
+                        }
+                        image_grid_definition {
+                          text
+                        }
+                        learning_grid_definition {
+                          text
+                        }
+                        image {
+                          alt
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                      }
+                      items {
+                        learning_body {
+                          html
+                        }
+                        learning_title {
+                          text
+                        }
+                        number
+                      }
+                      slice_type
+                    }
+
                     ... on PrismicWorkBodySectionThreeColumns {
                       id
                       slice_type
