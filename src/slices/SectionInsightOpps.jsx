@@ -6,7 +6,7 @@ import { ProjectSection, GridWrap, TextBox, CollapseWrap } from '../components'
 const SectionInsightOpps = ({ input }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
-      <GridWrap className="columngapS rowgapS">
+      <GridWrap className="columngapS">
           <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2>
           </div>
