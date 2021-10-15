@@ -47,7 +47,7 @@ const OverlapGrid = ({ input, gridLayouts }) => (
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
           {input.items.map((item) => {
               const gridStyle = 
-                {lbox:'grid4L start7L grid6I grid8T start5T grid10M start3M overlapTop', img:'stretch topCption',text:'grid4L start3L start2I grid6I grid8T start1T grid10M overlapBottom middle'}
+                {lbox:'grid4L start7L grid6I grid8T start5T grid10M start3M overlapTop', img:'stretch topCaption',text:'grid4L start3L start2I grid6I grid8T start1T grid10M overlapBottom middle'}
               return (
                 <GridWrap className="columngapS">
                     <TextBox className={`${gridStyle.text}` + ` front ` + ` ${item.box_background}`}>
