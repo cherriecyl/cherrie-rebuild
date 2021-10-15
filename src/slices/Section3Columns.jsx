@@ -18,11 +18,11 @@ const Section3Columns = ({ input }) => {
           <div dangerouslySetInnerHTML={ { __html: input.primary.columns_header.html} } className="grid8L start3L grid10I start2I grid12T start1T"/>
       </GridWrap>
 
-      <GridWrap className="fillrows columngapS rowgapS">
+      <GridWrap className="fillrows columngapS">
         {input.items.map((item) => (
             <>
-              <Lightbox boxClass="grid4L grid10T start2T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
-              <div dangerouslySetInnerHTML={ { __html: item.column_body.html} } className="grid4L grid10T start2T"/>
+              <Lightbox boxClass="grid4L grid10I start2I grid12T start1T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+              <div dangerouslySetInnerHTML={ { __html: item.column_body.html} } className="grid4L grid10I start2I grid12T start1T"/>
             </>
         ))}
       </GridWrap>
