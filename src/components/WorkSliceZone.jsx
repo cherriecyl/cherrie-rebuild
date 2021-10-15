@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionHeaderWithQuote, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel } from '../slices'
+import { SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionLearnings, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel } from '../slices'
 
 export default class WorkSliceZone extends Component {
   render() {
@@ -20,8 +20,8 @@ export default class WorkSliceZone extends Component {
           return <SectionQuote key={s.id} input={s} />
         case 'banner':
           return <SectionBanner key={s.id} input={s} />
-        case 'section__header_text_with_quote':
-          return <SectionHeaderWithQuote key={s.id} input={s} />
+        case 'section__learnings_with_collapsibles':
+          return <SectionLearnings key={s.id} input={s} />
         case 'section__stats':
           return <SectionStats key={s.id} input={s} />
         case 'section__three_columns':
