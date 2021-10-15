@@ -30,7 +30,7 @@ const Wrap = styled("div")`
   li:last-of-type {
     margin-bottom:0;
   }
-  ul {
+  ul, ol {
     margin-bottom: 0;
   }
 `
