@@ -374,6 +374,24 @@ export const pageQuery = graphql`
                           }
                           background
                         }
+                        items {
+                          image {
+                            alt
+                            localFile {
+                              childImageSharp {
+                                fluid(maxWidth: 1024) {
+                                  ...GatsbyImageSharpFluid
+                                }
+                              }
+                            }
+                          }
+                          grid_definition {
+                            text
+                          }
+                          img_class {
+                            text
+                          }
+                        }
                     }
                     ... on PrismicWorkBodySectionOverlineHeaderCarousel {
                       id

@@ -161,6 +161,10 @@ const ProjectLayoutContainer = styled("div")`
             margin-top: 2.5em;
         }
     }
+    .sectionAbove {
+        margin-top: 4em;
+        padding-top: 2vw;
+    }
 `
 const WorkLink = styled(Link)`
     margin-top: 3em;
