@@ -14,5 +14,6 @@ import Section3Columns from './Section3Columns'
 import SectionHMW from './SectionHMW'
 import SectionPrototype from './SectionPrototype'
 import SectionOverlineHeaderCarousel from './SectionOverlineHeaderCarousel'
+import StickyNav from './StickyNav'
 
-export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionLearnings, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel }
+export { Image, CodeBlock, BodyText, Quote, SectionProblemSpace, SectionHeaderVideoImages, OverlapGrid, SectionInsightOpps, SectionQuote, SectionBanner, SectionLearnings, SectionStats, Section3Columns, SectionHMW, SectionPrototype, SectionOverlineHeaderCarousel, StickyNav }

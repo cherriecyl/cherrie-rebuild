@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, ImgWithCaption } from '../components'
+import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, ImgWithCaption, StickyNav } from '../components'
 import website from '../../config/website'
 
 
@@ -94,10 +94,8 @@ const Work = ({ data: { prismicWork }, location }) => {
                   <p>{data.title.text}</p>
                 </HeroText>
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
-          </Header>
-          <main>
-          <ProjectSection id="details" className="thin">
-              <GridWrap>
+              <ProjectSection id="details" className="thin">
+                <GridWrap>
                     <Spec className="grid6L grid12I row2">
                         <p className="focus">{data.spec_brief_header.text}</p>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_brief.html}}/>
@@ -128,7 +126,9 @@ const Work = ({ data: { prismicWork }, location }) => {
                         )}
                     </Spec>
               </GridWrap>
-          </ProjectSection>
+              </ProjectSection>
+            </Header>
+          <main>
           <WorkSliceZone allSlices={data.body} />
           </main>
           {/* <Headline>
@@ -495,6 +495,7 @@ export const pageQuery = graphql`
                       id
                       slice_type
                       primary {
+                        section_id
                         section_large_subtitle {
                           text
                         }
@@ -617,6 +618,17 @@ export const pageQuery = graphql`
                           text
                         }
                         number
+                      }
+                      slice_type
+                    }
+
+                    ... on PrismicWorkBodyStickynav {
+                      id
+                      items {
+                        link_title {
+                          text
+                        }
+                        section_id
                       }
                       slice_type
                     }

@@ -33,6 +33,7 @@ const theme = {
     grey800: "#3a342a",
     grey700: "#625747",
     grey600: "#796F58",
+    grey550: "#b6a498",
     grey500: "#c6b8af",
     grey400: "#ded2c0",
     grey300: "#E5dad3",

@@ -66,6 +66,27 @@ const CollapseWrapStyle = styled("div")`
             border-right: 2px solid ${(props) => props.theme.colors.green900};
         }
     }
+
+    &.stickynav {
+        .accordion__button:before {
+            height: 8px;
+            width: 8px;
+            min-width: 8px;
+        }
+        .accordion__button {
+            margin-bottom: 1em;
+            margin-top: 1em;
+            @media(max-width: ${(props) => props.theme.maxwidthiPadPro}) {
+                width: 100%;
+            }
+        }
+        .accordion__button[aria-expanded='false'] {
+            width: 80px;
+            @media(max-width: ${(props) => props.theme.maxwidthiPadPro}) {
+                width: 100%;
+            }
+        }
+    }
     
     .accordion__button[aria-expanded='true']::before,
     .accordion__button[aria-selected='true']::before,

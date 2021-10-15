@@ -58,7 +58,8 @@ const LightboxDialogContent = styled(DialogContent)`
 `
 
 const LightboxDialogOverlay = styled(DialogOverlay)`
-    background: rgba(98, 87, 71, 0.9)
+    background: rgba(98, 87, 71, 0.9);
+    z-index: 5;
 `
 
 const Lightbox = ({ boxClass, imgClass, src, alt, showcap }) => {
