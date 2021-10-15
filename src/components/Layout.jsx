@@ -18,14 +18,15 @@ import styled from "@emotion/styled";
 
 import 'typeface-manrope'
 import 'typeface-inter'
+import "@fontsource/atkinson-hyperlegible";
 
 const typeStyle = css`
     h1 {
-        font-size: 2.3em;
+        font-size: 2.2em;
         line-height: 1.35;
         font-weight: 700;
         letter-spacing: 0.005em;
-        font-family: 'Manrope', 'Inter', sans-serif;
+        font-family: 'Manrope', , sans-serif;
         font-style: normal;
 
         @media(max-width:${theme.maxwidthiPadPro}) {
@@ -76,19 +77,19 @@ const typeStyle = css`
         font-size: 0.9em;
         text-transform: uppercase;
         letter-spacing: 0.04em;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
     }
 
     h6 {
         font-size: 0.95em;
         font-weight: 500;
         margin: 0;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
     }
 
     p {
-        line-height: 1.9;
-        font-family: 'Inter var', 'Inter', sans-serif;
+        line-height: 1.7;
+        font-family: 'Atkinson Hyperlegible', 'Inter var', 'Inter', sans-serif;
     }
 
     a {
@@ -101,14 +102,14 @@ const typeStyle = css`
         transition: all 0.2s ease-in-out;
     }
     .overline {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Manrope', 'Inter', sans-serif;
       color: ${theme.colors.grey600};
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.4;
       font-size: 0.85em;
       margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       margin-top: 0;
   }
 `
@@ -128,7 +129,7 @@ const globalStyle = css`
     body {
         width: 100%;
         margin: 0 auto;
-        font-size: 15px;
+        font-size: 16.5px;
         line-height: 1.5;
         color: ${theme.colors.grey900};
         -webkit-font-smoothing: antialiased;

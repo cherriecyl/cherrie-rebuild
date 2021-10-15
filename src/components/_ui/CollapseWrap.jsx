@@ -54,6 +54,7 @@ const CollapseWrapStyle = styled("div")`
             content: '';
             height: 10px;
             width: 10px;
+            min-width: 10px;
             margin-right: 12px;
             border-bottom: 2px solid ${(props) => props.theme.colors.grey600};
             border-right: 2px solid ${(props) => props.theme.colors.grey600};
@@ -83,9 +84,10 @@ const CollapseWrapStyle = styled("div")`
         }
         h3 {
             font-size: 0.9em;
+            letter-spacing: 0.03em;
             margin-top: 1em;
             margin-bottom: 0.5em;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
         }
     }
     [hidden] {

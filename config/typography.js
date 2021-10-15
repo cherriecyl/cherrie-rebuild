@@ -21,6 +21,7 @@ const typography = new Typography({
     'Segoe UI Symbol',
   ],
   bodyFontFamily: [
+    'Atkinson Hyperlegible',
     'Inter',
     '-apple-system',
     'BlinkMacSystemFont',

@@ -26,6 +26,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@emotion/styled-base": "^10.0.31",
+    "@fontsource/atkinson-hyperlegible": "^4.5.1",
     "@reach/dialog": "^0.16.0",
     "@reach/skip-nav": "^0.8.6",
     "@reach/visually-hidden": "^0.16.0",

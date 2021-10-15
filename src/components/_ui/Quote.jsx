@@ -32,7 +32,7 @@ const QuoteAttribute = styled("div")`
         margin: 0;
         font-weight: normal;
         color: ${(props) => props.theme.colors.grey900};
-        font-family: 'Inter', sans-serif;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
         font-weight: 400; 
     }
     p.dash::before {

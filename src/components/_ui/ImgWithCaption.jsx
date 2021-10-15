@@ -17,7 +17,7 @@ const ImgWithCaptionWrap = styled("figure")`
         margin-bottom: 0.5em;
         color: ${(props) => props.theme.colors.grey700};
         font-size: 0.9em;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
     }
     &.centerCaption {
         figcaption {

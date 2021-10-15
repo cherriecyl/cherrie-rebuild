@@ -115,7 +115,7 @@ const ProjectCardImageContainer = styled("div")`
 `
 
 const ProjectCardAction = styled("div")`
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     color: currentColor;
     transition: all 150ms ease-in-out;
@@ -124,6 +124,7 @@ const ProjectCardAction = styled("div")`
         display: inline-block;
         margin-bottom:0;
         margin-top:0;
+        font-family: 'Manrope', 'Inter var', 'Inter', sans-serif;
     }
 
     p.external::after {

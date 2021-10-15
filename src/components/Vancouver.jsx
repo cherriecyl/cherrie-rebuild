@@ -58,7 +58,7 @@ const TooltipBox = styled("div")`
       padding 0.5s ease-in-out;
    text-align: center;
    font-size: 0.8rem;
-   font-family: 'Inter var', 'Inter', sans-serif;
+   font-family: 'Atkinson Hyperlegible', 'Inter var', 'Inter', sans-serif;
    font-weight: 400;
    line-height: 1.4;
    &:before {
