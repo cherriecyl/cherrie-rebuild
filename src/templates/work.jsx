@@ -238,6 +238,17 @@ export const pageQuery = graphql`
                         section_overline {
                           text
                         }
+                        background_image_side {
+                          localFile {
+                            id
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                  ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                          alt
+                        }
                       }
                       items {
                         body_text {
@@ -490,6 +501,17 @@ export const pageQuery = graphql`
                         }
                         body_text {
                           html
+                        }
+                        background_image_side {
+                          localFile {
+                            id
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                  ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                          alt
                         }
                       }
                       items {
