@@ -233,7 +233,7 @@ class Index extends Component {
     return (
       <Layout>
           <Hero>
-              <h1>I'm Cherrie Lam.&nbsp;<nobr><span aria-hidden="true" role="img"><Cherry/></span></nobr><br/> A product designer focused on inclusive and community-centered digital tools.&nbsp;<nobr><span aria-hidden="true" role="img"><Plant/></span></nobr><br/> <Vancouver/></h1>
+              <h1>I'm Cherrie Lam,&nbsp;<nobr><span aria-hidden="true" role="img"><Cherry/></span></nobr><br/> a product designer focused on inclusive and community-centered digital tools.&nbsp;<nobr><span aria-hidden="true" role="img"><Plant/></span></nobr><br/> <Vancouver/></h1>
               <BylineContainer>
                 <a href={homepage.data.byline_link.url} target="_blank" rel="noopener noreferrer">
                 <BylineAvatar>
