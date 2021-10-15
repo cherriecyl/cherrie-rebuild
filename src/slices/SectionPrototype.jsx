@@ -11,7 +11,10 @@ const BkgImgWrap = styled("div")`
   position: absolute;
   width: 18vw;
   max-width: 250px;
-  right: -3vw;
+  right: 0;
+  div { 
+    right: -2vw;
+  }
   margin: auto;
   padding-top: 3em;
   overflow: hidden;

@@ -8,7 +8,10 @@ const BkgImgWrap = styled("div")`
   position: absolute;
   width: 25vw;
   max-width: 360px;
-  right: -8vw;
+  right: 0;
+  div {
+    right: -5vw;
+  }
   z-index: 1;
   overflow: hidden;
   padding-top: 15em;
@@ -22,7 +25,7 @@ const BkgImgWrap = styled("div")`
 `
 
 const SectionProblemSpace = ({ input }) => (
-  
+
   <>
   <BkgImgWrap aria-hidden="true">
         <ImgContainer src={input.primary.background_image_side.localFile.childImageSharp.fluid} alt={input.primary.background_image_side.alt} />
