@@ -60,6 +60,7 @@ const PrototypeContainer = ({ className, device, prototype, video, background })
             fluid={device.localFile.childImageSharp.fluid} 
             objectFit="cover"
             objectPosition="50% 50%"
+            aria-hidden="true"
         />
         <PrototypeVideoContainer>
             { `${prototype}` == "video" ? 
