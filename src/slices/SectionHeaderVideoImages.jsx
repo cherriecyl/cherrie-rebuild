@@ -10,7 +10,7 @@ const SectionHeaderVideoImages= ({ input }) => (
           <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2>
           </div>
-          <div className="grid8L grid10I grid12T start3L start2I start1T">
+          <div className="grid8L grid10I grid12T start3L start2I start1T spaceBelow">
               <h3>{input.primary.section_large_subtitle.text}</h3>
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
