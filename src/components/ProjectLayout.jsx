@@ -143,7 +143,7 @@ const ProjectLayoutContainer = styled("div")`
     }
     .projectSpecs {
         p {
-            font-size: 0.9em;
+            font-size: 0.95em;
             margin-bottom: 0;
         }
         li {

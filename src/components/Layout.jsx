@@ -135,7 +135,7 @@ const globalStyle = css`
         -webkit-font-smoothing: antialiased;
 
         @media(max-width: ${theme.maxwidthMobile}) {
-            font-size: 14px;
+            font-size: 15.5px;
         }
 
 
