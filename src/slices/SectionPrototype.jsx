@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ProjectSection, GridWrap, PrototypeContainer } from '../components'
+import styled from "@emotion/styled";
+
+const TextWrap = styled("div")`
+  margin-bottom: 2em;
+`
 
 const SectionPrototype = ({ input }) => {
   return (
@@ -15,11 +20,11 @@ const SectionPrototype = ({ input }) => {
             </div>
             {input.items.map((item, index) => (
               <>
-                <PrototypeContainer className={"grid4L grid5I grid12T start1T" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
-                <div className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+                <PrototypeContainer className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
+                <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
-                </div>
+                </TextWrap>
               </>
             ))}
         </GridWrap>
