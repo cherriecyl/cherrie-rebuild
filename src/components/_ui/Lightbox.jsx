@@ -14,35 +14,16 @@ const PreviewButton = styled("button")`
     text-align: left;
     &:hover {
         color: ${(props) => props.theme.colors.grey900};
-        cursor: pointer;
+        cursor: zoom-in;
         figure > div > div {
             transform: scale(1.1);
             transition: transform 200ms ease-in-out;
-            &:before {
-                opacity: 0.7;
-                transition: all 150ms ease-in-out;
-            }
         }
     }
     width: 100%;
     height: 100%;
     figure {
         height: 100%;
-    }
-    figure > div > div {
-        &:before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            z-index: 2;
-            background: ${(props) => props.theme.colors.grey500};
-            mix-blend-mode: multiply;
-            opacity: 0;
-            transition: all 150ms ease-in-out;
-        }
     }
 `
 
