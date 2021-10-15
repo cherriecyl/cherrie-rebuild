@@ -5,16 +5,13 @@ import PropTypes from "prop-types";
 const GridContainer = styled("div")`
     display: grid;
     column-gap: 5vw;
-    row-gap: 4em;
+    row-gap: 2em;
     margin-bottom: 4em;
     margin-top: 4em;
     align-content: start;
     grid-template-columns: repeat(12, 1fr);
     &.dense {
         grid-auto-flow: dense;
-    }
-    &.rowgapS {
-        row-gap: 2em;
     }
     &.stickyGrid {
         @media(min-width:${(props)=>props.theme.maxwidthiPadPro}) {
@@ -28,13 +25,6 @@ const GridContainer = styled("div")`
     }
     &.columngapS {
         column-gap: 2vw;
-    }
-    &.noBottomGap {
-        margin-bottom: 0em;
-        margin-top:0em;
-    }
-    &.thickSpace {
-        margin-bottom: 6em;
     }
     &.fillrows {
         grid-template-rows: 1fr auto;
