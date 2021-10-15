@@ -82,15 +82,6 @@ const Work = ({ data: { prismicWork }, location }) => {
                   <h1>{data.project.text}</h1>
                   <p className="focus">{data.title.text}</p>
                 </HeroText>
-                        {/* { `${data.title.text} == mobile` ? 
-                            <ProtoWrap className="grid4L start5L grid10T start2T" >
-                              <FadeUp delay="1">
-                              <PrototypeContainer className="heroOverlap smaller" device={data.hero_prototype_device} prototype="video" video={data.hero_prototype_video.raw} background={data.hero_prototype_poster}/>
-                            </FadeUp>
-                            </ProtoWrap>
-                            : 
-                            <></>
-                        } */}
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
           </Header>
           <main>
