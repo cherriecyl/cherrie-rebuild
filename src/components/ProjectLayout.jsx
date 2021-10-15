@@ -90,7 +90,7 @@ const ProjectLayoutContainer = styled("div")`
         font-family: 'Manrope', 'Inter', sans-serif;
     }
     .focus {
-        font-size: 1.35em;
+        font-size: 1.25em;
         line-height: 1.6;
         margin-top: 0;
         color: ${(props) => props.theme.colors.grey700};
@@ -148,6 +148,17 @@ const ProjectLayoutContainer = styled("div")`
         }
         li {
             font-size: 0.9em;
+        }
+        h2 {
+            margin-top: 0.75em;
+        }
+    }
+    .spaceBelow {
+        margin-bottom: 2em;
+    }
+    .projSubHeading {
+        h4 {
+            margin-top: 2.5em;
         }
     }
 `
