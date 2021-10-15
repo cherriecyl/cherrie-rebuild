@@ -23,7 +23,8 @@ const BkgImgWrap = styled("div")`
 
 const SectionProblemSpace = ({ input }) => (
   
-  <><BkgImgWrap aria-hidden="true">
+  <>
+  <BkgImgWrap aria-hidden="true">
         <ImgContainer src={input.primary.background_image_side.localFile.childImageSharp.fluid} alt={input.primary.background_image_side.alt} />
   </BkgImgWrap>
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
@@ -42,9 +43,10 @@ const SectionProblemSpace = ({ input }) => (
                   <div className="brown" dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
               </div>
           ))}
-           <ImgContainer className="grid10L start2L grid12T start1T" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} />
+           <ImgContainer className="grid10L start2L grid12T start1T" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} aria-hidden="true"/>
     </GridWrap>
-  </ProjectSection></>
+  </ProjectSection>
+  </>
 
 )
 
