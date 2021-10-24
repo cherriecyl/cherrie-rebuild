@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
-import { Layout, Listing, Wrapper, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome } from '../components'
+import { Layout, Listing, Wrapper, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome, GridWrap } from '../components'
 import website from '../../config/website'
 import Img from 'gatsby-image'
 import { Link } from "gatsby";
@@ -19,7 +19,7 @@ const Hero = styled("header")`
   @media (max-width: ${(props) => props.theme.maxwidthiPadPro}) {
     max-width: 85%
   }
-  @media (max-width: ${(props) => props.theme.maxwidthMobile}) {
+  @media (max-width: ${(props) => props.theme.maxwidthTablet}) {
     padding-top: 0em;
   }
 `
@@ -31,7 +31,7 @@ const BylineContainer = styled("div")`
   left: -10px;
   margin-bottom: 4em;
 
-  @media(max-width: ${(props) => props.theme.maxwidthMobile}) {
+  @media(max-width: ${(props) => props.theme.maxwidthTablet}) {
       left: 0px;
       margin-bottom: 2em;
   }
@@ -64,7 +64,7 @@ const BylineAvatar = styled("div")`
     }
   }
 
-  @media(max-width: ${(props) => props.theme.maxwidthMobile}) {
+  @media(max-width: ${(props) => props.theme.maxwidthTablet}) {
     display: none;
 }
 `
@@ -119,20 +119,18 @@ const ProjectsContainer = styled("ul")`
     margin-left: 0;
     max-width:1200px;
     display: grid;
+    grid-auto-flow: dense;
     margin:auto;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 10fr 9fr 1fr;
     grid-gap: 5em;
 
-    li:nth-of-type(3n+1) {
-        grid-column-end: span 2;
-        margin-top: 4em;
-    }
-
     li:nth-of-type(4n+1) {
+        grid-column-start: 2;
+        grid-column-end: span 2;
         .ProjectCardImageContainer{
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), -1em -1em 0 ${(props) => props.theme.colors.grey300};
         }
-        @media(max-width:${(props) => props.theme.maxwidthMobile}) {
+        @media(max-width:${(props) => props.theme.maxwidthTablet}) {
             margin-left: 8%;
             margin-right: 2%;
         }
@@ -142,17 +140,19 @@ const ProjectsContainer = styled("ul")`
         .ProjectCardImageContainer{
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), 1em 1em 0 ${(props) => props.theme.colors.grey300};
         }
-        @media(max-width:${(props) => props.theme.maxwidthMobile}) {
+        @media(max-width:${(props) => props.theme.maxwidthTablet}) {
             margin-left: 2%;
             margin-right: 8%;
         }
     }
 
     li:nth-of-type(4n+2) {
+        margin-top: 12em;
+        grid-row-end: span 2; 
         .ProjectCardImageContainer{
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), -1em 1em 0 ${(props) => props.theme.colors.grey300};
         }
-        @media(max-width:${(props) => props.theme.maxwidthMobile}) {
+        @media(max-width:${(props) => props.theme.maxwidthTablet}) {
             margin-right: 15%;
             margin-left: 5%;
         }
@@ -162,7 +162,7 @@ const ProjectsContainer = styled("ul")`
         .ProjectCardImageContainer{
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), 1em -1em 0 ${(props) => props.theme.colors.grey300};
         }
-        @media(max-width:${(props) => props.theme.maxwidthMobile}) {
+        @media(max-width:${(props) => props.theme.maxwidthTablet}) {
             margin-left: 15%;
             margin-right: 5%;
         }
@@ -181,48 +181,49 @@ const ProjectsContainer = styled("ul")`
         grid-gap: 3.5em;
     }
     
-    @media(max-width:${(props) => props.theme.maxwidthMobile}) {
+    @media(max-width:${(props) => props.theme.maxwidthTablet}) {
         grid-template-columns: 1fr;
         li:nth-of-type(n) {
             grid-column-end: span 1;
             margin-top:0;
+            grid-column-start: 1;
         }
         grid-gap: 2em;
     }
 `
 
-const WorkAction = styled(Link)`
-    font-weight: 700;
-    text-decoration: none;
-    color: currentColor;
-    transition: all 150ms ease-in-out;
-    margin-left: auto;
-    margin-top: 4em;
-    letter-spacing: 0.02em;
-    font-family: 'Manrope', 'Inter', sans-serif;
+// const WorkAction = styled(Link)`
+//     font-weight: 700;
+//     text-decoration: none;
+//     color: currentColor;
+//     transition: all 150ms ease-in-out;
+//     margin-left: auto;
+//     margin-top: 4em;
+//     letter-spacing: 0.02em;
+//     font-family: 'Manrope', 'Inter', sans-serif;
 
-    @media(max-width:${(props) => props.theme.maxwidthTablet}) {
-       margin: 4em auto;
-    }
+//     @media(max-width:${(props) => props.theme.maxwidthTablet}) {
+//        margin: 4em auto;
+//     }
 
-    span {
-        margin-left: 0em;
-        display: inline-block;
-        transition: transform 400ms ease-in-out;
-    }
+//     span {
+//         margin-left: 0em;
+//         display: inline-block;
+//         transition: transform 400ms ease-in-out;
+//     }
 
-    &:hover {
-        color: ${(props) => props.theme.colors.green800};
-        transition: all 150ms ease-in-out;
+//     &:hover {
+//         color: ${(props) => props.theme.colors.green800};
+//         transition: all 150ms ease-in-out;
 
-        span {
-            transform: translateX(8px);
-            -webkit-transform: translateX(8px);
-            opacity: 1;
-            transition: transform 150ms ease-in-out;
-        }
-    }
-`
+//         span {
+//             transform: translateX(8px);
+//             -webkit-transform: translateX(8px);
+//             opacity: 1;
+//             transition: transform 150ms ease-in-out;
+//         }
+//     }
+// `
 
 
 class Index extends Component {
@@ -248,18 +249,19 @@ class Index extends Component {
           <Main id={website.skipNavId}>
             <Section>
               <ProjectsContainer>
-                {projects.nodes.map((project) => (
+                {projects.nodes.map((project) => 
+                  (
                   <li key={project.primary.label.text}>
                     <ProjectCardonHome project={project.primary}/>
                   </li>
                 ))}
               </ProjectsContainer>
-              <WorkAction to={"/work"}>
+              {/* <WorkAction to={"/work"}>
                   See more work <span>&#8594;</span>
-              </WorkAction>
+              </WorkAction> */}
             </Section>
           </Main>
-          <Listing posts={posts.nodes} />
+          {/* <Listing posts={posts.nodes} /> */}
           <Section>
             <h2>{homepage.data.contact_footer_title.text}</h2>
             <ContactFooter 
