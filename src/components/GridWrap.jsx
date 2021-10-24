@@ -13,18 +13,11 @@ const GridContainer = styled("div")`
     &.dense {
         grid-auto-flow: dense;
     }
-    &.stickyGrid {
-        @media(min-width:${(props)=>props.theme.maxwidthiPadPro}) {
-            row-gap: 0em;
-            div.containerWhite {
-                padding-bottom: 4em;
-            }
-            margin-bottom: 0em;
-            padding-bottom: 4em;
-        }
-    }
     &.columngapS {
         column-gap: 2vw;
+    }
+    &.columngap {
+        column-gap: 5vw
     }
     &.fillrows {
         grid-template-rows: 1fr auto;
@@ -32,6 +25,12 @@ const GridContainer = styled("div")`
     }
     .row2 {
         grid-row-end: span 2;
+    }
+    .row3 {
+        grid-row-end: span 3;
+    }
+    .row4 {
+        grid-row-end: span 4;
     }
     .overlapTop {
         grid-row: row 1 / span 4;
