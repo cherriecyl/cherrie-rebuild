@@ -1,13 +1,13 @@
 {
   "name": "gatsby-starter-prismic",
   "description": "A typography-heavy & light-themed Gatsby Starter which uses the Headless CMS Prismic",
-  "private": true,
   "license": "MIT",
   "version": "1.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "scripts": {
     "start": "gatsby develop -p 1234 -H 0.0.0.0",
 		"publish": "npm run _clean && npm run _build && npm run _encrypt1 && npm run _encrypt2 && npm run _encrypt3 && npm run _envDeploy",
+		"//": "========= PRIVATE SCRIPTS =========",
 		"_clean": "gatsby clean",
 		"_build": "gatsby build",
 		"_encrypt1": "npx staticrypt public/work/arrival-advisor.html thanksforbeinghere -o public/work/arrival-advisor.html",
