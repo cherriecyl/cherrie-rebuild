@@ -88,7 +88,7 @@ const typeStyle = css`
     }
 
     p {
-        line-height: 1.7;
+        line-height: 1.9;
         font-family: 'Atkinson Hyperlegible', 'Inter var', 'Inter', sans-serif;
     }
 
@@ -129,8 +129,8 @@ const globalStyle = css`
     body {
         width: 100%;
         margin: 0 auto;
-        font-size: 16.5px;
-        line-height: 1.5;
+        font-size: 17px;
+        line-height: 1.6;
         color: ${theme.colors.grey900};
         -webkit-font-smoothing: antialiased;
 
