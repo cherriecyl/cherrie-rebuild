@@ -42,6 +42,11 @@ const ProjectLayoutContainer = styled("div")`
             margin: 1em;
         }
     }
+    .altShadow {
+        div, video {
+            box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), -1em -1em 0 ${(props) => props.theme.colors.grey300};
+        }
+    }
 
     .whiteBackground {
         position: relative;
@@ -106,6 +111,9 @@ const ProjectLayoutContainer = styled("div")`
     .fontsmaller {
         font-size: 0.9em;
     }
+    .fontBigger {
+        font-size: 1.05em;
+    }
     .fontStat {
         font-size: 1.7em;
         line-height: 1.4;
@@ -135,30 +143,34 @@ const ProjectLayoutContainer = styled("div")`
     .nostretch {
         align-self: flex-start;
     }
-    .containerWhite {
-        background-color: white;
-    }
     .title {
         margin-top: 0;
     }
     .projectSpecs {
         p {
-            font-size: 0.95em;
+            font-size: 0.9em;
             margin-bottom: 0;
+            line-height: 1.6;
         }
         li {
             font-size: 0.9em;
         }
-        h2 {
-            margin-top: 0.75em;
-        }
+        padding-bottom: 0;
     }
     .spaceBelow {
         margin-bottom: 2em;
     }
+    .spaceAbove {
+        margin-top: 2em;
+    }
     .projSubHeading {
         h4 {
             margin-top: 2.5em;
+        }
+    }
+    .onlyHeader {
+        h4 {
+            margin-bottom: 0;
         }
     }
     .sectionAbove {
@@ -177,7 +189,7 @@ const ProjectLayout = ({ children }) => (
         <ProjectLayoutContainer>
             { children }
         </ProjectLayoutContainer>
-        <WorkLink to={`/work`}>
+        <WorkLink to={`/`}>
             <Button className="Button--secondary">
                 See other work
             </Button>
