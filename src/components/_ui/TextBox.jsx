@@ -12,10 +12,10 @@ const TextWrap = styled("div")`
         margin-top: 1em;
     }
     h4 {
-        margin-top:0em;
+        margin-top: 0em !important;
     }
-    .noTitle {
-        p:nth-child(1) {
+    &.noTitle {
+        p:first-of-type {
             margin-top: 0em;
         }
     }
@@ -42,6 +42,11 @@ const TextWrap = styled("div")`
         justify-content: center;
         p {
             margin: 0;
+        }
+    }
+    &.spec {
+        ul {
+            margin-bottom: 0
         }
     }
 `
