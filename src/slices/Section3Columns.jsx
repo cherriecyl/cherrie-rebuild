@@ -14,14 +14,15 @@ const Section3Columns = ({ input }) => {
               <h3>{input.primary.section_large_subtitle.text}</h3>
           </div>
           <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } className={input.primary.text_grid_definition.text}/>
-          <Lightbox boxClass={input.primary.img_grid_definition.text} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>
-          <div dangerouslySetInnerHTML={ { __html: input.primary.columns_header.html} } className="grid8L start3L grid10I start2I grid12T start1T"/>
+          {input.primary.image.url == null ? `` : <Lightbox boxClass={input.primary.img_grid_definition.text} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>}
+          <div dangerouslySetInnerHTML={ { __html: input.primary.columns_header.html} } className="grid8L start3L grid10I start2I grid12T start1T sectionAbove"/>
       </GridWrap>
 
       <GridWrap className="fillrows columngapS">
         {input.items.map((item) => (
-            <>
-              <Lightbox boxClass="grid4L grid10I start2I grid12T start1T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+            <>{item.image.url == null ? `` :
+            <Lightbox boxClass="grid4L grid10I start2I grid12T start1T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+            }
               <div dangerouslySetInnerHTML={ { __html: item.column_body.html} } className="grid4L grid10I start2I grid12T start1T"/>
             </>
         ))}
