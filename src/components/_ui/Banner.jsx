@@ -9,9 +9,8 @@ const BannerWrap = styled("div")`
     overflow: hidden;
     align-items: center;
     padding-top: 0em;
-    height: 500px;
+    height: 100%;
     border-radius: 4px;
-    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), -1em -1em 0 ${(props) => props.theme.colors.grey300};
     div {
         margin: 0;
         max-width: 100%;
@@ -19,23 +18,11 @@ const BannerWrap = styled("div")`
         height: auto;
         min-height: 500px;
     }
-    &.hero {
-        margin-top: 4em;
-    }
-    @media(max-width:${(props) => props.theme.maxwidthTablet}) {
-        width: 100vw;
-        left: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        right: 50%;
-        border-radius: 0px;
-        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0em 0em 0 ${(props) => props.theme.colors.grey300};
-        &.hero {
-            height: 300px;
-            div {
-                width: 100%;
-            }
-        }
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    right: 50%;
     }
 `
 
