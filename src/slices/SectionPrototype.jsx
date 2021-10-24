@@ -1,37 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProjectSection, GridWrap, PrototypeContainer, ImgContainer } from '../components'
+import { ProjectSection, GridWrap, PrototypeContainer, ImgContainer, Lightbox, VideoWithCaption } from '../components'
 import styled from "@emotion/styled";
 
 const TextWrap = styled("div")`
   margin-bottom: 2em;
 `
 
-const BkgImgWrap = styled("div")`
-  position: absolute;
-  width: 18vw;
-  max-width: 250px;
-  right: 0;
-  div { 
-    right: -2vw;
-  }
-  margin: auto;
-  padding-top: 3em;
-  overflow: hidden;
-  @media(max-width: ${(props) => props.theme.maxwidthiPadPro}) {
-    display: none;
-    width: 0;
-    height: 0;
-    visibility: hidden;
-  }
+const VideoContainer = styled("figure")`
+    display: flex;
+    flex-direction: column;
+    &.stretch {
+        div {
+            height: 100%;
+        }
+    }
+    margin: 0;
+    figcaption {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: ${(props) => props.theme.colors.grey700};
+        font-size: 0.9em;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif;
+    }
+    &.centerCaption {
+        figcaption {
+            text-align: center;
+        }
+    }
+    &.topCaption {
+        flex-direction: column-reverse;
+    }
 `
 
 const SectionPrototype = ({ input }) => {
   return (
     <ProjectSection className={input.primary.background} id={input.primary.section_id}>
-      <BkgImgWrap aria-hidden="true">
-          <ImgContainer src={input.primary.background_image_side.localFile.childImageSharp.fluid} alt={input.primary.background_image_side.alt} />
-      </BkgImgWrap>
       <GridWrap className="dense">
             <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2>
@@ -40,15 +44,47 @@ const SectionPrototype = ({ input }) => {
                 <h3>{input.primary.section_large_subtitle.text}</h3>
                 <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
             </div>
-            {input.items.map((item, index) => (
-              <>
-                <PrototypeContainer className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
-                <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+            {input.items.map((item, index) => {
+              const itemType = item.prototype
+              const getComponent = () => {
+                switch(itemType) {
+                  case 'lightbox':
+                    return (
+                    <><Lightbox boxClass={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` }  src={item.prototype_background.localFile.childImageSharp.fluid} alt={item.prototype_background.alt}/>
+                    <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+                    <h4>{item.feature_title.text}</h4>
+                    <div dangerouslySetInnerHTML={ { __html: item.feature_body.html} } />
+                    </TextWrap>
+                    </>);
+                  case 'video_screen':
+                    return (
+                    <>
+                    <VideoContainer className={"grid8L grid12T start1T middle spaceBelow" + `${ index % 2 ? ` start5L`: ``}`}>
+                      <video poster={item.prototype_background.url} width="100%" autoPlay loop muted controls><source src={item.prototype_asset.url} type="video/mp4"/>
+                        Your browser does not support the video tag.
+                      </video>
+                      <figcaption>{item.prototype_background.alt}</figcaption>
+                    </VideoContainer>
+                    <TextWrap className={"grid4L grid12T start1T middle" + `${ index % 2 ? ` start1L`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
-                </TextWrap>
+                    </TextWrap>
+                    </>);
+                  default: 
+                    return (
+                    <><PrototypeContainer className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
+                    <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+                    <h4>{item.feature_title.text}</h4>
+                    <p>{item.feature_body.text}</p> 
+                    </TextWrap></>
+                    );
+                  }
+              }
+              return (
+              <>
+                { getComponent() }
               </>
-            ))}
+            )})}
         </GridWrap>
     </ProjectSection> 
   )           
