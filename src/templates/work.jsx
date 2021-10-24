@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, ImgWithCaption, StickyNav } from '../components'
+import { Layout, Listing, WorkSliceZone, Title, SEO, ProjectLayout, GridWrap, CollapseWrap, ProjectSection, ImgWithCaption, TextBox } from '../components'
 import website from '../../config/website'
 
 
@@ -64,11 +64,18 @@ const ProjectLink = styled("a")`
 
 const Spec = styled("div")`
   margin-bottom: 2em;
+  h2 {
+    margin-top: 0.75em;
+  }
 `
 
 const OverlineWrap = styled("div")`
     margin-bottom: 2em;
     font-size: 0.95em;
+    .overline {
+      color: ${(props) => props.theme.colors.grey550}
+    }
+    
 `
 
 const Work = ({ data: { prismicWork }, location }) => {
@@ -95,26 +102,32 @@ const Work = ({ data: { prismicWork }, location }) => {
                 </HeroText>
               <ImgWithCaption className="hero" src={data.hero_banner.localFile.childImageSharp.fluid} alt={data.hero_banner.alt} showcap={false}/>
               <ProjectSection id="details" className="thin">
-                <GridWrap>
-                    <Spec className="grid6L grid12I row2">
-                        <p className="focus">{data.spec_brief_header.text}</p>
+                <GridWrap className="columngapS dense">
+                  <div className="grid7L grid12I row4 start2L start1I">
+                    <TextBox className="border">
+                        <h2 className="overline">About the project</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_brief.html}}/>
-                    </Spec>
-                    <Spec className="grid3L grid6I grid12M projectSpecs">
+                    </TextBox>
+                    <TextBox className="beige spaceAbove spec">
+                        <h2 className="overline">Why is this project interesting?</h2>
+                        <div dangerouslySetInnerHTML={{ __html: data.spec_interesting.html}}/>
+                    </TextBox>
+                    </div>
+                    <TextBox className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Role &amp; Timeline</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.client_timeframe.html}}/>
-                    </Spec>
-                    <Spec className="grid3L grid6I grid12M projectSpecs">
+                    </TextBox>
+                    <TextBox className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Scope</h2>
                         <div dangerouslySetInnerHTML={{ __html: data.spec_role.html}}/>
-                    </Spec>
-                    <Spec className="grid3L grid6I grid12M projectSpecs">
+                    </TextBox>
+                    <TextBox className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">Team</h2>
                         <CollapseWrap className="team" labeltext={data.spec_team.text}>
                             <div dangerouslySetInnerHTML={{ __html: data.spec_team_description.html}}/>
                         </CollapseWrap>
-                    </Spec>
-                    <Spec className="grid3L grid6I grid12M projectSpecs">
+                    </TextBox>
+                    {data.spec_links.length == 0 ? `` : <TextBox className="grid3L grid6I grid12M projectSpecs">
                         <h2 className="overline">See it live</h2>
                         {data.spec_links.map((link) => (
                             <p key={link.link_label.text}>
@@ -124,7 +137,7 @@ const Work = ({ data: { prismicWork }, location }) => {
                             </p>
                             )
                         )}
-                    </Spec>
+                    </TextBox>}
               </GridWrap>
               </ProjectSection>
             </Header>
@@ -183,8 +196,8 @@ export const pageQuery = graphql`
                 spec_brief {
                     html
                 }
-                spec_brief_header {
-                    text
+                spec_interesting {
+                    html
                 }
                 spec_links {
                     link {
@@ -221,6 +234,7 @@ export const pageQuery = graphql`
                         section_id
                         background
                         header_image {
+                          url
                           localFile {
                             id
                             childImageSharp {
@@ -239,17 +253,6 @@ export const pageQuery = graphql`
                         }
                         section_overline {
                           text
-                        }
-                        background_image_side {
-                          localFile {
-                            id
-                            childImageSharp {
-                              fluid(maxWidth: 1024) {
-                                  ...GatsbyImageSharpFluid
-                              }
-                            }
-                          }
-                          alt
                         }
                       }
                       items {
@@ -387,30 +390,15 @@ export const pageQuery = graphql`
                           }
                           background
                         }
-                        items {
-                          image {
-                            alt
-                            localFile {
-                              childImageSharp {
-                                fluid(maxWidth: 1024) {
-                                  ...GatsbyImageSharpFluid
-                                }
-                              }
-                            }
-                          }
-                          grid_definition {
-                            text
-                          }
-                          img_class {
-                            text
-                          }
-                        }
                     }
                     ... on PrismicWorkBodySectionOverlineHeaderCarousel {
                       id
                       slice_type
                       primary {
                         background
+                        gridwrap_class {
+                          text
+                        }
                         body_text {
                           html
                         }
@@ -427,6 +415,7 @@ export const pageQuery = graphql`
                           document {
                             ... on PrismicCarousel {
                               data {
+                                num_slides
                                 image_collection {
                                   image {
                                     alt
@@ -477,6 +466,7 @@ export const pageQuery = graphql`
                             }
                           }
                           alt
+                          url
                         }
                         grid_definition {
                           text
@@ -489,12 +479,16 @@ export const pageQuery = graphql`
                         }
                         showcap
                         type
+                        video {
+                          url
+                        }
                       }
                     }
                     ... on PrismicWorkBodySectionPrototypeInAction {
                       id
                       slice_type
                       primary {
+                        background
                         section_id
                         section_large_subtitle {
                           text
@@ -505,17 +499,6 @@ export const pageQuery = graphql`
                         body_text {
                           html
                         }
-                        background_image_side {
-                          localFile {
-                            id
-                            childImageSharp {
-                              fluid(maxWidth: 1024) {
-                                  ...GatsbyImageSharpFluid
-                              }
-                            }
-                          }
-                          alt
-                        }
                       }
                       items {
                         feature_title {
@@ -523,6 +506,7 @@ export const pageQuery = graphql`
                         }
                         feature_body {
                           text
+                          html
                         }
                         prototype
                         prototype_background {
@@ -533,6 +517,7 @@ export const pageQuery = graphql`
                               }
                             }
                           }
+                          url
                           alt
                         }
                         prototype_asset {
@@ -562,6 +547,18 @@ export const pageQuery = graphql`
                           text
                         }
                         background
+                        background_image_side {
+                          localFile {
+                            id
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                  ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                          alt
+                          url
+                        }
                       }
                     }
                     ... on PrismicWorkBodySectionStats {
@@ -589,6 +586,13 @@ export const pageQuery = graphql`
                     ... on PrismicWorkBodySectionLearningsWithCollapsibles {
                       id
                       primary {
+                        section_id
+                        section_overline {
+                          text
+                        }
+                        section_large_subtitle {
+                          text
+                        }
                         background
                         body_text {
                           html
@@ -618,6 +622,20 @@ export const pageQuery = graphql`
                           text
                         }
                         number
+                        type
+                        image {
+                          alt
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 1024) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                        grid_definition {
+                          text
+                        }
                       }
                       slice_type
                     }
@@ -632,12 +650,47 @@ export const pageQuery = graphql`
                       }
                       slice_type
                     }
+                    ... on PrismicWorkBodyBanner {
+                      id
+                      slice_type
+                      primary {
+                        figcaption
+                        image {
+                          alt
+                          localFile {
+                            childImageSharp {
+                              fluid(maxWidth: 2000) {
+                                ...GatsbyImageSharpFluid
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    ... on PrismicWorkBodySectionDivider {
+                      id
+                      slice_type
+                      primary {
+                        background
+                        section_id
+                        section_overline {
+                          text
+                        }
+                      }
+                      items {
+                        anchor_id
+                        link_text {
+                          html
+                          text
+                        }
+                      }
+                    }
 
                     ... on PrismicWorkBodySectionThreeColumns {
                       id
                       slice_type
                       primary {
-                        background
                         body_text {
                           html
                         }
@@ -645,6 +698,7 @@ export const pageQuery = graphql`
                           html
                         }
                         image {
+                          url
                           alt
                           localFile {
                             childImageSharp {
@@ -674,6 +728,7 @@ export const pageQuery = graphql`
                           html
                         }
                         image {
+                          url
                           localFile {
                             childImageSharp {
                               fluid(maxWidth: 1024) {
