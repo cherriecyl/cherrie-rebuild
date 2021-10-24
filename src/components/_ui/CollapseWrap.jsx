@@ -26,7 +26,7 @@ const CollapseWrapStyle = styled("div")`
         .accordion__button {
             font-size: 0.9em;
             margin: 0;
-            line-height: 1.9;
+            line-height: 1.6;
             display: inline-block;
             p {
                 margin-right: 0.5em;
@@ -81,7 +81,7 @@ const CollapseWrapStyle = styled("div")`
             }
         }
         .accordion__button[aria-expanded='false'] {
-            width: 80px;
+            width: 85px;
             @media(max-width: ${(props) => props.theme.maxwidthiPadPro}) {
                 width: 100%;
             }
