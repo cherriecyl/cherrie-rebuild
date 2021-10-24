@@ -24,11 +24,6 @@ const ImgWithCaptionWrap = styled("figure")`
             text-align: center;
         }
     }
-    &.prototypeCaption {
-        figcaption {
-            margin-top: 1.5em;
-        }
-    }
     &.topCaption {
         flex-direction: column-reverse;
     }
