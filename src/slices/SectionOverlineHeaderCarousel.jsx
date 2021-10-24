@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ProjectSection, GridWrap, Lightbox, Carousel, ImgWithCaption, PrototypeContainer, TextBox } from '../components'
-import { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import styled from '@emotion/styled';
 
 const VideoContainer = styled("figure")`
