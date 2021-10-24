@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 
 const Stat = styled("div")`
   strong {
-      font-size: 1.7em;
+      font-size: 1.8em;
       line-height: 1.4;
       margin-bottom: 4%;
       color: ${(props) => props.theme.colors.grey700};
@@ -15,8 +15,8 @@ const Stat = styled("div")`
       }
   }
   em {
-      font-size: 1.35em;
-      line-height: 1.6;
+      font-size: 1.2em;
+      line-height: 1.5;
       margin-top: 0;
       color: ${(props) => props.theme.colors.grey700};
       font-weight: 700;
@@ -31,6 +31,7 @@ const StatWrap = styled("div")`
     flex-wrap: wrap;
     gap: 2em;
     justify-content: center;
+    margin-bottom: 2em;
 `
 
 const SectionStats = ({ input }) => (
@@ -40,9 +41,15 @@ const SectionStats = ({ input }) => (
           <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
               <h2 className="overline">{input.primary.section_overline.text}</h2> 
           </div>
+          {input.items.length == 0 ? 
           <div className="grid8L start3L grid10I start2I grid12T start1T">
-              <h3>{input.primary.section_large_subtitle.text}</h3>
-              <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
+            <h3>{input.primary.section_large_subtitle.text}</h3>
+            <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
+          </div>
+          
+          : 
+          <><div className="grid8L start3L grid10I start2I grid12T start1T">
+            <h3>{input.primary.section_large_subtitle.text}</h3>
           </div>
           <div className="grid12L">
             <StatWrap>
@@ -53,6 +60,8 @@ const SectionStats = ({ input }) => (
               ))}
             </StatWrap>
           </div>
+          <div className="grid8L start3L grid10I start2I grid12T start1T" dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
+          </>}
       </GridWrap>
   </ProjectSection>
 
