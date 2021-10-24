@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProjectSection, GridWrap, Lightbox, TextBox, CollapseWrap } from '../components'
+import { ProjectSection, GridWrap, Lightbox, TextBox, CollapseWrap, ImgWithCaption } from '../components'
 import styled from '@emotion/styled'
 
 
@@ -14,9 +14,6 @@ const Number = styled("span")`
 `
 
 const LearningsWrap = styled("div")`
-  > div {
-    margin-bottom: 2em;
-  }
   h5 {
         line-height: 1.6;
         font-size: 1em;
@@ -34,19 +31,26 @@ const SectionLearnings = ({ input }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
       <GridWrap>
+        {input.primary.section_overline.text !== `` ? <div className="grid1L grid10I start2I grid12T start1T sectionOverline">
+              <h2 className="overline">{input.primary.section_overline.text}</h2>
+          </div> : ``}
           <div className="grid8L start3L grid10I start2I grid12T start1T">
+              {input.primary.section_large_subtitle.text !== `` ? <h3>{input.primary.section_large_subtitle.text}</h3> : ``}
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
-          <Lightbox boxClass={`${input.primary.image_grid_definition.text}` + ` nostretch`} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>
-          <LearningsWrap className={input.primary.learning_grid_definition.text}>
+          {input.primary.image.alt == null ? `` : <Lightbox boxClass={`${input.primary.image_grid_definition.text}` + ` nostretch`} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>}
             {input.items.map((item) => (
-                <TextBox className="white nostretch">
+                item.type !== "image" ? 
+                <LearningsWrap className={input.primary.learning_grid_definition.text}>
+                  <TextBox className="white nostretch">
                   <CollapseWrap className="insights" labeltext={<><Number>{item.number}</Number> <h5>{item.learning_title.text}</h5></>}>
                       <div dangerouslySetInnerHTML={{ __html: item.learning_body.html}}/>
                   </CollapseWrap>
-                </TextBox> 
-            ))}
-          </LearningsWrap>
+                </TextBox>
+                </LearningsWrap> : <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+            )
+            )}
+          {/* </LearningsWrap> */}
       </GridWrap>
   </ProjectSection>
 )
