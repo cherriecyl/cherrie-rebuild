@@ -6,11 +6,11 @@ const SectionWrap = styled("section")`
     padding-bottom: 7vw;
     padding-top: 7vw;
     h3 {
-        font-size: 1.8em;
-        line-height: 1.5;
+        font-size: 1.6em;
+        line-height: 1.6;
         margin-top: 0;
         @media(max-width:${(props) => props.theme.maxwidthiPadPro}) {
-            font-size: 1.5em;
+            font-size: 1.4em;
         }
     }
     &.thin {
