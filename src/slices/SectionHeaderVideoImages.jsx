@@ -14,7 +14,9 @@ const SectionHeaderVideoImages= ({ input }) => (
               <h3>{input.primary.section_large_subtitle.text}</h3>
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
-          <VideoWithCaption className={input.primary.video_grid_definition.text} src={input.primary.video.url} alt={input.primary.video_caption.text}/>
+          {input.primary.video == null ? 
+            `` :
+          <VideoWithCaption className={input.primary.video_grid_definition.text} src={input.primary.video.url} alt={input.primary.video_caption.text}/> }
           {input.items.map((item) => (
                   <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
           ))}
