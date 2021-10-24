@@ -42,7 +42,7 @@ const IndentedLinkContainer = styled("div")`
     }
 `
 
-const OverlapGrid = ({ input, gridLayouts }) => (
+const OverlapGrid = ({ input }) => (
 
   <ProjectSection className={input.primary.background} id={input.primary.section_id}>
           {input.items.map((item) => {
