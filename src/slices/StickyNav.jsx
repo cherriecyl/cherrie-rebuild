@@ -10,22 +10,23 @@ const NavWrap = styled("div")`
   top: 0;
   z-index: 3;
   .header {
+    line-height: 1.3;
     background: ${(props) => props.theme.colors.grey200};
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 4px;
     position: absolute;
     margin: 0;
-    margin-top: 6vw;
-    max-width: 200px;
-    left: -1em;
+    margin-top: calc(1vw + 5em);
+    max-width: 150px;
+    right: -4em;
     color: ${(props) => props.theme.colors.gray700};
     ul {
         list-style-type: none;
         margin: 0;
     }
     li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.7rem;
         &:hover {
             transform: translateX(10px);
             transition: all 300ms;
@@ -41,7 +42,6 @@ const NavWrap = styled("div")`
       border-bottom: 1px solid currentColor;
       color: ${(props) => props.theme.colors.green700}
       ;
-      margin-left: 10px;
     }
     p.overline {
         margin-bottom: 0;
@@ -64,7 +64,7 @@ const StickyNav = ({ input }) => {
     return (
     <NavWrap>
         <div className="header">
-        <CollapseWrap className="insights stickynav" labeltext={<p className="overline">Skip to section</p>}>
+        <CollapseWrap className="insights stickynav" labeltext={<p className="overline">Skip to...</p>}>
             <ul>
             {input.items.map((item) => (
               <li>
