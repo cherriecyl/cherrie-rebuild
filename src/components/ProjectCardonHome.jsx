@@ -76,9 +76,13 @@ const ProjectCardCategory = styled("p")`
     margin-bottom: 1.5em;
 `
 
-const ProjectCardTitle = styled("h3")`
+const ProjectCardTitle = styled("h2")`
     margin-top:0em;
     margin-bottom: 0.8em;
+    line-height: 1.3;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: 0.005em;
 `
 
 const ProjectCardBlurb = styled("div")`
