@@ -11,7 +11,8 @@ const CarouselWrap = styled("div")`
         margin-bottom: 1.5em;
     }
     div > ul > li.carousel-item-padding-40-px {
-        padding-left: 1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
     }
 `
 
