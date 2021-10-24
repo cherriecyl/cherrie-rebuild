@@ -31,7 +31,7 @@ const AboutContainer = styled("div")`
     grid-template-columns: 300px 1fr 1fr;
     grid-gap: 3em;
     .last {
-        margin-top:2.5em;
+        margin-top:2.3em;
     }
 
     a {
