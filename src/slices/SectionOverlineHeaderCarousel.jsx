@@ -74,17 +74,11 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
                 case 'lightbox':
                   return <Lightbox key={item.image.localFile.uid} boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} showcap={item.showcap} lbBkg={item.img_class.text}/>;
                 case 'carousel':
-                  return <Carousel className={item.grid_definition.text} plugins={['infinite',
-                            {
-                              resolve: slidesToShowPlugin,
-                              options: {
-                                numberOfSlides: `${item.image_collection.document[0].data.num_slides}`,
-                              }
-                            },'arrows']}>
-                                  {item.image_collection.document[0].data.image_collection.map((i) => (
-                                      <Lightbox src={i.image.localFile.childImageSharp.fluid} alt={i.image.alt} imgClass="centerCaption" lbBkg={item.img_class.text}/>
-                                  ))}
-                          </Carousel>
+                  return <Carousel className={item.grid_definition.text} slides={item.image_collection.document[0].data.num_slides}>
+                          {item.image_collection.document[0].data.image_collection.map((i) => (
+                              <Lightbox src={i.image.localFile.childImageSharp.fluid} alt={i.image.alt} imgClass="centerCaption" lbBkg={item.img_class.text}/>
+                          ))}
+                      </Carousel>
                 case 'video':
                   return <VideoContainer key={item.image_collection.document[0].data.poster.localFile.uid} className={`centerCaption prototypeCaption ` + `${item.grid_definition.text}`}><PrototypeContainer device={item.image_collection.document[0].data.device} prototype="video" video={item.image_collection.document[0].data.video} background={item.image_collection.document[0].data.poster}/>{item.showcap ? <figcaption className="video">{item.image.alt}</figcaption> : ``}</VideoContainer>
                 case 'video_screen':
