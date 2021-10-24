@@ -68,7 +68,7 @@ const StickyNav = ({ input }) => {
             <ul>
             {input.items.map((item) => (
               <li>
-                <Link activeClass="active" to={item.section_id} spy={true} smooth={true} duration={1000} className="overline">
+                <Link key={item.section_id} activeClass="active" to={item.section_id} spy={true} smooth={true} duration={1000} className="overline">
                   {item.link_title.text}
               </Link>
               </li>

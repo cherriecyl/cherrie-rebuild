@@ -50,7 +50,7 @@ const SectionPrototype = ({ input }) => {
                 switch(itemType) {
                   case 'lightbox':
                     return (
-                    <><Lightbox boxClass={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` }  src={item.prototype_background.localFile.childImageSharp.fluid} alt={item.prototype_background.alt}/>
+                    <><Lightbox key={item.prototype_background.localFile.uid} boxClass={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` }  src={item.prototype_background.localFile.childImageSharp.fluid} alt={item.prototype_background.alt}/>
                     <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <div dangerouslySetInnerHTML={ { __html: item.feature_body.html} } />
@@ -59,21 +59,21 @@ const SectionPrototype = ({ input }) => {
                   case 'video_screen':
                     return (
                     <>
-                    <VideoContainer className={"grid8L grid12T start1T middle spaceBelow" + `${ index % 2 ? ` start5L`: ``}`}>
+                    <VideoContainer key={item.prototype_background.localFile.uid} className={"grid8L grid12T start1T middle spaceBelow" + `${ index % 2 ? ` start5L`: ``}`}>
                       <video poster={item.prototype_background.url} width="100%" autoPlay loop muted controls><source src={item.prototype_asset.url} type="video/mp4"/>
                         Your browser does not support the video tag.
                       </video>
                       <figcaption>{item.prototype_background.alt}</figcaption>
                     </VideoContainer>
-                    <TextWrap className={"grid4L grid12T start1T middle" + `${ index % 2 ? ` start1L`: ``}`}>
+                    <TextWrap key={item.feature_body.text} className={"grid4L grid12T start1T middle" + `${ index % 2 ? ` start1L`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
                     </TextWrap>
                     </>);
                   default: 
                     return (
-                    <><PrototypeContainer className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
-                    <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+                    <><PrototypeContainer key={item.prototype_background.localFile.uid} className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
+                    <TextWrap key={item.feature_body.text} className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
                     </TextWrap></>

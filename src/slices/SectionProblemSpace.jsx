@@ -17,7 +17,7 @@ const SectionProblemSpace = ({ input }) => (
           </div>
           {input.items.length == 0 ? `` : 
           <>{input.items.map((item, index) => (
-              <TextBox className={`grid4L grid5I grid6T grid12M border` + `${ index % 2 ? '': ` start3L start2I start1T`}` }>
+              <TextBox key={item.body_text.html} className={`grid4L grid5I grid6T grid12M border` + `${ index % 2 ? '': ` start3L start2I start1T`}` }>
                   <p className={`focus ` + `${item.focus_text_class.text}`}>{item.focus_text.text}</p>
                   <div className="brown" dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
               </TextBox>

@@ -49,7 +49,7 @@ const SectionAnchor = ({ input }) => (
             <ol>
             {input.items.map((item) => (
               <li>
-                <Link spy={true} smooth={true} duration={1500} to={item.anchor_id}><div dangerouslySetInnerHTML={ { __html: item.link_text.html} } /></Link>
+                <Link spy={true} smooth={true} duration={1500} to={item.anchor_id} key={item.anchor_id}><div dangerouslySetInnerHTML={ { __html: item.link_text.html} } /></Link>
               </li>
             ))}
             </ol>

@@ -65,14 +65,14 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
             const bodyText = () => (item.body_text.html == null || itemType == 'textbox' || itemType == 'column' ? 
                 ``
                 : 
-                <TextWrap className="grid8L start3L grid10I start2I grid12T start1T" dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
+                <TextWrap className="grid8L start3L grid10I start2I grid12T start1T" dangerouslySetInnerHTML={ { __html: item.body_text.html} } key={item.body_text.html}/>
             )
             const getComponent = () => {
               switch(itemType) {
                 case 'img':
-                  return <ImgWithCaption src={item.image.localFile.childImageSharp.fluid} className={`${item.img_class.text}` + ` ${item.grid_definition.text}`} alt={item.image.alt} showcap={item.showcap} /> ;
+                  return <ImgWithCaption key={item.image.localFile.uid} src={item.image.localFile.childImageSharp.fluid} className={`${item.img_class.text}` + ` ${item.grid_definition.text}`} alt={item.image.alt} showcap={item.showcap}/> ;
                 case 'lightbox':
-                  return <Lightbox boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} showcap={item.showcap} lbBkg={item.img_class.text}/>;
+                  return <Lightbox key={item.image.localFile.uid} boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} showcap={item.showcap} lbBkg={item.img_class.text}/>;
                 case 'carousel':
                   return <Carousel className={item.grid_definition.text} plugins={['infinite',
                             {
@@ -86,18 +86,18 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
                                   ))}
                           </Carousel>
                 case 'video':
-                  return <VideoContainer className={`centerCaption prototypeCaption ` + `${item.grid_definition.text}`}><PrototypeContainer device={item.image_collection.document[0].data.device} prototype="video" video={item.image_collection.document[0].data.video} background={item.image_collection.document[0].data.poster}/>{item.showcap ? <figcaption className="video">{item.image.alt}</figcaption> : ``}</VideoContainer>
+                  return <VideoContainer key={item.image_collection.document[0].data.poster.localFile.uid} className={`centerCaption prototypeCaption ` + `${item.grid_definition.text}`}><PrototypeContainer device={item.image_collection.document[0].data.device} prototype="video" video={item.image_collection.document[0].data.video} background={item.image_collection.document[0].data.poster}/>{item.showcap ? <figcaption className="video">{item.image.alt}</figcaption> : ``}</VideoContainer>
                 case 'video_screen':
-                  return <VideoContainer className={`${item.grid_definition.text}` + ` ${item.img_class.text}`}>
+                  return <VideoContainer key={item.video.url} className={`${item.grid_definition.text}` + ` ${item.img_class.text}`}>
                     <video poster={item.image.url} width="100%" autoPlay loop muted controls><source src={item.video.url} type="video/mp4"/>
                       Your browser does not support the video tag.
                     </video>
                     {item.showcap ? <figcaption>{item.image.alt}</figcaption> : ``}
                   </VideoContainer>
                 case 'column':
-                  return <TextWrap className={`${item.grid_definition.text}` + ` ${item.img_class.text}`} dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
+                  return <TextWrap key={item.body_text.html} className={`${item.grid_definition.text}` + ` ${item.img_class.text}`} dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
                 case 'textbox':
-                  return <TextBox className={`${item.grid_definition.text}` + ` ${item.img_class.text}`}><TextWrap dangerouslySetInnerHTML={ { __html: item.body_text.html} } /></TextBox>
+                  return <TextBox key={item.body_text.html} className={`${item.grid_definition.text}` + ` ${item.img_class.text}`}><TextWrap dangerouslySetInnerHTML={ { __html: item.body_text.html} } /></TextBox>
                 default:
                   return ``; 
               }

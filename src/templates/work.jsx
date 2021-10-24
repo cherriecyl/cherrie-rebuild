@@ -277,6 +277,7 @@ export const pageQuery = graphql`
                           }
                           image {
                             localFile {
+                              uid
                               childImageSharp {
                                 fluid(maxWidth: 1024) {
                                     ...GatsbyImageSharpFluid
@@ -333,6 +334,7 @@ export const pageQuery = graphql`
                           image {
                             alt
                             localFile {
+                              uid
                               childImageSharp {
                                 fluid(maxWidth: 1024) {
                                     ...GatsbyImageSharpFluid
@@ -420,6 +422,7 @@ export const pageQuery = graphql`
                                   image {
                                     alt
                                     localFile {
+                                      uid
                                       childImageSharp {
                                         fluid(maxWidth: 1024) {
                                           ...GatsbyImageSharpFluid
@@ -434,6 +437,7 @@ export const pageQuery = graphql`
                               data {
                                 device {
                                   localFile {
+                                    uid
                                     childImageSharp {
                                       fluid(maxWidth: 1024) {
                                         ...GatsbyImageSharpFluid
@@ -446,6 +450,7 @@ export const pageQuery = graphql`
                                 }
                                 poster {
                                   localFile {
+                                    uid
                                     childImageSharp {
                                       fluid(maxWidth: 1024) {
                                         ...GatsbyImageSharpFluid
@@ -459,6 +464,7 @@ export const pageQuery = graphql`
                         }
                         image {
                           localFile {
+                            uid
                             childImageSharp {
                               fluid(maxWidth: 1024) {
                                   ...GatsbyImageSharpFluid
@@ -511,6 +517,7 @@ export const pageQuery = graphql`
                         prototype
                         prototype_background {
                           localFile {
+                            uid
                             childImageSharp {
                               fluid(maxWidth: 1024) {
                                   ...GatsbyImageSharpFluid
@@ -606,6 +613,7 @@ export const pageQuery = graphql`
                         image {
                           alt
                           localFile {
+                            uid
                             childImageSharp {
                               fluid(maxWidth: 1024) {
                                 ...GatsbyImageSharpFluid
@@ -730,6 +738,7 @@ export const pageQuery = graphql`
                         image {
                           url
                           localFile {
+                            uid
                             childImageSharp {
                               fluid(maxWidth: 1024) {
                                 ...GatsbyImageSharpFluid

@@ -33,7 +33,7 @@ const FooterText = styled(Link)`
 
 const Footer = ({ children }) => (
     <StyledFooter>
-      <Link to="/">
+      <Link to={`/`}>
         <Logo />
       </Link>
       <FooterText>{children}</FooterText>

@@ -61,8 +61,7 @@ const ImgWithCaption = ({ className, src, alt, showcap }) => {
 
 
 ImgWithCaption.propTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired
 }
 
 export default ImgWithCaption;

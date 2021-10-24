@@ -41,13 +41,13 @@ const SectionLearnings = ({ input }) => (
           {input.primary.image.alt == null ? `` : <Lightbox boxClass={`${input.primary.image_grid_definition.text}` + ` nostretch`} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>}
             {input.items.map((item) => (
                 item.type !== "image" ? 
-                <LearningsWrap className={input.primary.learning_grid_definition.text}>
+                <LearningsWrap className={input.primary.learning_grid_definition.text} key={item.learning_title.text}>
                   <TextBox className="white nostretch">
                   <CollapseWrap className="insights" labeltext={<><Number>{item.number}</Number> <h5>{item.learning_title.text}</h5></>}>
                       <div dangerouslySetInnerHTML={{ __html: item.learning_body.html}}/>
                   </CollapseWrap>
                 </TextBox>
-                </LearningsWrap> : <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+                </LearningsWrap> : <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.localFile.uid}/>
             )
             )}
           {/* </LearningsWrap> */}

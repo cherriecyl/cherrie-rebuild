@@ -42,8 +42,7 @@ const ImgContainer = ({ className, src, alt}) => {
 
 
 ImgContainer.propTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired
 }
 
 export default ImgContainer;

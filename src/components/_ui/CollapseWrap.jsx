@@ -138,8 +138,7 @@ const CollapseWrap = ({ className, labeltext, children }) => {
 
 CollapseWrap.propTypes = {
   children: PropTypes.node.isRequired,
-  labeltext: PropTypes.node.isRequired,
-  id: PropTypes.string.isRequired
+  labeltext: PropTypes.node.isRequired
 }
 
 export default CollapseWrap;

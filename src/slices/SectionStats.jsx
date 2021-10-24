@@ -54,7 +54,7 @@ const SectionStats = ({ input }) => (
           <div className="grid12L">
             <StatWrap>
               {input.items.map((item) => (
-                  <TextBox className="border results">
+                  <TextBox key={item.stat.html} className="border results">
                       <Stat dangerouslySetInnerHTML={ { __html: item.stat.html} } className="fontsmaller" />
                   </TextBox>
               ))}

@@ -30,7 +30,7 @@ const Logo = () => (
         `}>
         <path className="leaf1" stroke="null" d="m7.590672,19.324041c-0.209826,-0.017264 12.589177,-3.612901 23.408541,4.53994c10.819368,8.152843 13.075918,22.107494 13.201801,21.779795c-0.125882,0.327699 -18.240336,4.425227 -27.81487,-2.789581c-9.574529,-7.214805 -10.558686,-21.900889 -8.795472,-23.530153l0,-0.000001z" strokeWidth="6" fill="#04a043"/>
         <path className="leaf2" stroke="null" d="m92.758619,21.283291c0.195674,0.007462 -10.985146,-5.445698 -22.254219,1.977883c-11.269077,7.423582 -15.609478,22.146879 -15.67197,21.778946c0.062493,0.367933 16.047726,7.019928 26.020228,0.450474c9.972496,-6.569451 13.262106,-22.236943 11.905961,-24.207303z" strokeWidth="6" fill="#04a043"/>
-        <line className="stem" stroke="#04a043" fill="none" strokeWidth="7" x1="49.999999" y1="46.775131" x2="49.999999" y2="66.532687" strokeLinejoin="null" stroke-linecap="null"/>
+        <line className="stem" stroke="#04a043" fill="none" strokeWidth="7" x1="49.999999" y1="46.775131" x2="49.999999" y2="66.532687" strokeLinejoin="null" strokeLinecap="null"/>
         <g className="hand">
           <rect stroke="null" transform="rotate(6.990903854370117 35.540729522704986,89.41365051269534) " height="14.133554" width="42.437271" y="82.346873" x="14.322094" strokeOpacity="null" strokeWidth="6" fill="#c1a562"/>
           <ellipse transform="rotate(6.990903854370117 15.189772605896088,81.49138641357422) " stroke="null" ry="12.453189" rx="12.82752" id="svg_14" cy="81.49139" cx="15.189772" strokeOpacity="null" strokeWidth="6" fill="#c1a562"/>

@@ -21,7 +21,7 @@ const Section3Columns = ({ input }) => {
       <GridWrap className="fillrows columngapS">
         {input.items.map((item) => (
             <>{item.image.url == null ? `` :
-            <Lightbox boxClass="grid4L grid10I start2I grid12T start1T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+            <Lightbox boxClass="grid4L grid10I start2I grid12T start1T" imgClass="border" src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.localFile.uid}/>
             }
               <div dangerouslySetInnerHTML={ { __html: item.column_body.html} } className="grid4L grid10I start2I grid12T start1T"/>
             </>

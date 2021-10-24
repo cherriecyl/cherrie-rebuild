@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
-import { Layout, Listing, Wrapper, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome, GridWrap } from '../components'
+import { Layout, Vancouver, Cherry, Plant, ContactFooter, ProjectCardonHome } from '../components'
 import website from '../../config/website'
 import Img from 'gatsby-image'
-import { Link } from "gatsby";
 
 
 const Hero = styled("header")`

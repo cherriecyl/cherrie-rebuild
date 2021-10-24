@@ -16,7 +16,7 @@ const SectionInsightOpps = ({ input }) => (
           </div>
           {input.items.map((item, index) => (
 
-            <TextBox className={`${item.box_background}` + ` nostretch grid4L grid5I grid12T` + `${ index % 2 ? '': ` start3L start2I start1T`}` }>
+            <TextBox key={item.box_body.html} className={`${item.box_background}` + ` nostretch grid4L grid5I grid12T` + `${ index % 2 ? '': ` start3L start2I start1T`}` }>
               <CollapseWrap className="insights" labeltext={<h4>{item.box_title.text}</h4>}>
                   <div dangerouslySetInnerHTML={{ __html: item.box_body.html}}/>
               </CollapseWrap>
