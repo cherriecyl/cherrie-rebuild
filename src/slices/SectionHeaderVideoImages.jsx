@@ -18,7 +18,7 @@ const SectionHeaderVideoImages= ({ input }) => (
             `` :
           <VideoWithCaption className={input.primary.video_grid_definition.text} src={input.primary.video.url} alt={input.primary.video_caption.text}/> }
           {input.items.map((item) => (
-                  <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.localFile.uid}/>
+                  <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.alt}/>
           ))}
       </GridWrap>
   </ProjectSection>

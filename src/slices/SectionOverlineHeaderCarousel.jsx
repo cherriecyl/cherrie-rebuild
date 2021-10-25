@@ -59,7 +59,7 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
               <h3>{input.primary.section_large_subtitle.text}</h3>
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>}
-          {input.items.map((item) => {
+          {input.items.map((item, index) => {
             const itemType = item.type
             const bodyText = () => (item.body_text.html == null || itemType == 'textbox' || itemType == 'column' ? 
                 ``
@@ -71,11 +71,11 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
                 case 'img':
                   return <ImgWithCaption key={item.image.localFile.uid} src={item.image.localFile.childImageSharp.fluid} className={`${item.img_class.text}` + ` ${item.grid_definition.text}`} alt={item.image.alt} showcap={item.showcap}/> ;
                 case 'lightbox':
-                  return <Lightbox key={item.image.localFile.uid} boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} showcap={item.showcap} lbBkg={item.img_class.text}/>;
+                  return <Lightbox key={item.image.alt} boxClass={item.grid_definition.text} imgClass={item.img_class.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} showcap={item.showcap} lbBkg={item.img_class.text}/>;
                 case 'carousel':
                   return <Carousel className={item.grid_definition.text} slides={item.image_collection.document[0].data.num_slides}>
                           {item.image_collection.document[0].data.image_collection.map((i) => (
-                              <Lightbox src={i.image.localFile.childImageSharp.fluid} alt={i.image.alt} imgClass="centerCaption" lbBkg={item.img_class.text}/>
+                              <Lightbox key={i.image.alt} src={i.image.localFile.childImageSharp.fluid} alt={i.image.alt} imgClass="centerCaption" lbBkg={item.img_class.text}/>
                           ))}
                       </Carousel>
                 case 'video':
@@ -96,10 +96,10 @@ const SectionOverlineHeaderCarousel = ({ input }) => {
               }
             }
             return (
-              <>
+              <React.Fragment key={index}>
                 { bodyText() }
                 { getComponent() }
-              </>
+              </React.Fragment>
             )})}
           </GridWrap>
       </ProjectSection>

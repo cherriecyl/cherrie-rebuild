@@ -49,13 +49,13 @@ const OverlapGrid = ({ input }) => (
               const gridStyle = 
                 {lbox:'grid4L start7L grid6I grid8T start5T grid10M start3M overlapTop', img:'stretch topCaption',text:'grid4L start3L start2I grid6I grid8T start1T grid10M overlapBottom middle'}
               return (
-                <GridWrap className="columngapS" key={item.image.localFile.uid}>
-                    <TextBox className={`${gridStyle.text}` + ` front ` + ` ${item.box_background}`}>
+                <GridWrap className="columngapS" key={item.image.alt}>
+                    <TextBox className={`${gridStyle.text}` + ` front ` + ` ${item.box_background}`} key={item.box_title.text}>
                         <h4>{item.box_title.text}</h4>
                         <div dangerouslySetInnerHTML={{ __html: item.box_body.html} } />
                         { item.indented_link.html == null ? `` : <IndentedLinkContainer dangerouslySetInnerHTML={ { __html: item.indented_link.html} } /> }
                     </TextBox>
-                    <Lightbox boxClass={gridStyle.lbox} imgClass={gridStyle.img} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
+                    <Lightbox key={item.image.alt} boxClass={gridStyle.lbox} imgClass={gridStyle.img} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt}/>
                 </GridWrap>
               )
           })}

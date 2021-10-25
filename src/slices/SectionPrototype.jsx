@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProjectSection, GridWrap, PrototypeContainer, ImgContainer, Lightbox, VideoWithCaption } from '../components'
+import { ProjectSection, GridWrap, PrototypeContainer,Lightbox } from '../components'
 import styled from "@emotion/styled";
 
 const TextWrap = styled("div")`
@@ -50,15 +50,15 @@ const SectionPrototype = ({ input }) => {
                 switch(itemType) {
                   case 'lightbox':
                     return (
-                    <><Lightbox key={item.prototype_background.localFile.uid} boxClass={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` }  src={item.prototype_background.localFile.childImageSharp.fluid} alt={item.prototype_background.alt}/>
-                    <TextWrap className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
+                    <React.Fragment key={item.prototype_background.localFile.uid}><Lightbox key={item.prototype_background.localFile.uid} boxClass={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` }  src={item.prototype_background.localFile.childImageSharp.fluid} alt={item.prototype_background.alt}/>
+                    <TextWrap key={item.feature_body.html} className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <div dangerouslySetInnerHTML={ { __html: item.feature_body.html} } />
                     </TextWrap>
-                    </>);
+                    </React.Fragment>);
                   case 'video_screen':
                     return (
-                    <>
+                    <React.Fragment key={item.prototype_background.localFile.uid}>
                     <VideoContainer key={item.prototype_background.localFile.uid} className={"grid8L grid12T start1T middle spaceBelow" + `${ index % 2 ? ` start5L`: ``}`}>
                       <video poster={item.prototype_background.url} width="100%" autoPlay loop muted controls><source src={item.prototype_asset.url} type="video/mp4"/>
                         Your browser does not support the video tag.
@@ -69,21 +69,21 @@ const SectionPrototype = ({ input }) => {
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
                     </TextWrap>
-                    </>);
+                    </React.Fragment>);
                   default: 
                     return (
-                    <><PrototypeContainer key={item.prototype_background.localFile.uid} className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
+                    <React.Fragment key={item.prototype_background.localFile.uid}><PrototypeContainer key={item.prototype_background.localFile.uid} className={"grid4L grid5I grid12T start1T spaceBelow" + `${ index % 2 ? ` start7L`: ` start3L start2I`}` } device={item.prototype_container} prototype={item.prototype} video={item.prototype_asset} background={item.prototype_background}/>
                     <TextWrap key={item.feature_body.text} className={"grid4L grid5I grid12T start1T middle" + `${ index % 2 ? ` start3L start2I`: ``}`}>
                     <h4>{item.feature_title.text}</h4>
                     <p>{item.feature_body.text}</p> 
-                    </TextWrap></>
+                    </TextWrap></React.Fragment>
                     );
                   }
               }
               return (
-              <>
+              <React.Fragment key={index}>
                 { getComponent() }
-              </>
+              </React.Fragment>
             )})}
         </GridWrap>
     </ProjectSection> 

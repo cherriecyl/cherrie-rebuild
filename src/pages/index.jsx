@@ -16,7 +16,7 @@ const Hero = styled("header")`
     margin-bottom: 1em;
   }
   @media (max-width: ${(props) => props.theme.maxwidthiPadPro}) {
-    max-width: 85%
+    max-width: 90%
   }
   @media (max-width: ${(props) => props.theme.maxwidthTablet}) {
     padding-top: 0em;
@@ -152,8 +152,8 @@ const ProjectsContainer = styled("ul")`
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), -1em 1em 0 ${(props) => props.theme.colors.grey300};
         }
         @media(max-width:${(props) => props.theme.maxwidthTablet}) {
-            margin-right: 15%;
-            margin-left: 5%;
+            margin-right: 8%;
+            margin-left: 3%;
         }
     }
 
@@ -162,8 +162,8 @@ const ProjectsContainer = styled("ul")`
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1), 1em -1em 0 ${(props) => props.theme.colors.grey300};
         }
         @media(max-width:${(props) => props.theme.maxwidthTablet}) {
-            margin-left: 15%;
-            margin-right: 5%;
+            margin-left: 8%;
+            margin-right: 3%;
         }
     }
 

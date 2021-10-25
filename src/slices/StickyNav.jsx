@@ -67,7 +67,7 @@ const StickyNav = ({ input }) => {
         <CollapseWrap className="insights stickynav" labeltext={<p className="overline">Skip to...</p>}>
             <ul>
             {input.items.map((item) => (
-              <li>
+              <li key={item.section_id}>
                 <Link key={item.section_id} activeClass="active" to={item.section_id} spy={true} smooth={true} duration={1000} className="overline">
                   {item.link_title.text}
               </Link>

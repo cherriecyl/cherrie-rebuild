@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProjectSection, GridWrap, Lightbox, TextBox, CollapseWrap, ImgWithCaption } from '../components'
+import { ProjectSection, GridWrap, Lightbox, TextBox, CollapseWrap } from '../components'
 import styled from '@emotion/styled'
 
 
@@ -38,7 +38,7 @@ const SectionLearnings = ({ input }) => (
               {input.primary.section_large_subtitle.text !== `` ? <h3>{input.primary.section_large_subtitle.text}</h3> : ``}
               <div dangerouslySetInnerHTML={ { __html: input.primary.body_text.html} } />
           </div>
-          {input.primary.image.alt == null ? `` : <Lightbox boxClass={`${input.primary.image_grid_definition.text}` + ` nostretch`} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt}/>}
+          {input.primary.image.alt == null ? `` : <Lightbox boxClass={`${input.primary.image_grid_definition.text}` + ` nostretch`} src={input.primary.image.localFile.childImageSharp.fluid} alt={input.primary.image.alt} key={input.primary.image.alt}/>}
             {input.items.map((item) => (
                 item.type !== "image" ? 
                 <LearningsWrap className={input.primary.learning_grid_definition.text} key={item.learning_title.text}>
@@ -47,7 +47,7 @@ const SectionLearnings = ({ input }) => (
                       <div dangerouslySetInnerHTML={{ __html: item.learning_body.html}}/>
                   </CollapseWrap>
                 </TextBox>
-                </LearningsWrap> : <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.localFile.uid}/>
+                </LearningsWrap> : <Lightbox boxClass={item.grid_definition.text} src={item.image.localFile.childImageSharp.fluid} alt={item.image.alt} key={item.image.alt}/>
             )
             )}
           {/* </LearningsWrap> */}

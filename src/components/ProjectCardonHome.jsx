@@ -2,8 +2,9 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import Img from "gatsby-image/withIEPolyfill";
+import { Link } from "gatsby";
 
-const ProjectCardContainer = styled("a")`
+const ProjectCardContainer = styled(Link)`
     display: grid;
     grid-template-columns: 1fr;
     transition: all 150ms ease-in-out;
@@ -16,6 +17,7 @@ const ProjectCardContainer = styled("a")`
     }
 
     &:hover {
+        cursor: pointer;
         .ProjectCardContent {
             box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1);
             transition: all 300ms ease-in-out;
@@ -148,8 +150,8 @@ const ProjectCardAction = styled("div")`
 `
 
 const ProjectCard = ({ project }) => (
-    <ProjectCardContainer className="ProjectCardContainer" href=
-        { `${ project.link_internal ? `/work` : ``}` + `${project.link.url}` }>
+
+    <ProjectCardContainer className="ProjectCardContainer" to={`/work` + `${project.link.url}`}>
         <ProjectCardImageContainer className="ProjectCardImageContainer">
             <Img 
                 fluid={project.thumbnail.localFile.childImageSharp.fluid} 

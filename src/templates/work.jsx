@@ -300,6 +300,7 @@ export const pageQuery = graphql`
                     }
 
                     ... on PrismicWorkBodyOverlapGrid {
+                        id
                         slice_type
                         primary {
                           background
@@ -422,6 +423,7 @@ export const pageQuery = graphql`
                               }
                             }
                             ... on PrismicVideoPrototype {
+                              id
                               data {
                                 device {
                                   localFile {

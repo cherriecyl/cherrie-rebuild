@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Img from 'gatsby-image'
 
 
@@ -88,8 +88,8 @@ const PrototypeContainer = ({ className, device, prototype, video, background })
   };
 
 
-PrototypeContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+// PrototypeContainer.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
 
 export default PrototypeContainer;

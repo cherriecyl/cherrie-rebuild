@@ -6,12 +6,13 @@ import { Link } from 'react-scroll'
 
 
 const Wrap = styled("div")`
-  p {
+  a {
     font-family: 'Manrope', 'Inter', sans-serif;
     font-size: 1.2em;
     line-height: 1.6;
     margin-top: 0;
     font-weight: 700;
+    border-bottom: 0;
   }
   a {
     color: ${(props) => props.theme.colors.grey700};
@@ -48,8 +49,8 @@ const SectionAnchor = ({ input }) => (
           <Wrap className="grid8L grid10I grid12T start3L start2I start1T">
             <ol>
             {input.items.map((item) => (
-              <li>
-                <Link spy={true} smooth={true} duration={1500} to={item.anchor_id} key={item.anchor_id}><div dangerouslySetInnerHTML={ { __html: item.link_text.html} } /></Link>
+              <li key={item.anchor_id}>
+                <Link spy={true} smooth={true} duration={1500} to={item.anchor_id} key={item.anchor_id}>{item.link_text.text}</Link>
               </li>
             ))}
             </ol>
