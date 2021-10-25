@@ -16,7 +16,7 @@ const Hero = styled("header")`
     margin-bottom: 1em;
   }
   @media (max-width: ${(props) => props.theme.maxwidthiPadPro}) {
-    max-width: 90%
+    max-width: 95%
   }
   @media (max-width: ${(props) => props.theme.maxwidthTablet}) {
     padding-top: 0em;
