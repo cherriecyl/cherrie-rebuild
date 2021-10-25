@@ -233,18 +233,6 @@ export const pageQuery = graphql`
                       primary {
                         section_id
                         background
-                        header_image {
-                          url
-                          localFile {
-                            id
-                            childImageSharp {
-                              fluid(maxWidth: 1024) {
-                                  ...GatsbyImageSharpFluid
-                              }
-                            }
-                          }
-                          alt
-                        }
                         body_text {
                           html
                         }

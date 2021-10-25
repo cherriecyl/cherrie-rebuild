@@ -50,11 +50,13 @@ const MyCarousel = ({ children, className, slides, deviceType }) => {
       const partial = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 1.5,
+            items: 1,
+            partialVisibilityGutter: 400,
           },
           tablet: {
             breakpoint: { max: 1024, min: 600 },
-            items: 1.5,
+            partialVisibilityGutter: 200,
+            items: 1,
           },
           mobile: {
             breakpoint: { max: 600, min: 0 },

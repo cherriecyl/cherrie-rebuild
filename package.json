@@ -6,19 +6,6 @@
   "version": "1.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "scripts": {
-    "start": "gatsby develop -p 1234 -H 0.0.0.0",
-		"publish": "npm run _clean && npm run _build && npm run _encrypt1 && npm run _encrypt2 && npm run _encrypt3 && npm run _envDeploy",
-		"//": "========= PRIVATE SCRIPTS =========",
-		"_clean": "gatsby clean",
-		"_build": "gatsby build",
-		"_encrypt1": "npx staticrypt public/work/arrival-advisor.html thanksforbeinghere -o public/work/arrival-advisor.html",
-    "_encrypt2": "npx staticrypt public/work/snapp.html thanksforbeinghere -o public/work/snapp.html",
-    "_encrypt3": "npx staticrypt public/work/bc-jobconnect.html thanksforbeinghere -o public/work/bc-jobconnect.html",
-		"_deploy": "npx netlify-cli deploy --dir=public --prod",
-		"_envDeploy": "NETLIFY_SITE_ID=fc592f1a-c4f8-4c55-9c06-45be01cff0a9 NETLIFY_AUTH_TOKEN=4eBNUOvbqewbpUQFfZTXFENIRQyTKkwhm_NhXvPaYEk bash -c 'npm run _deploy'",
-	
-
-
     "build": "gatsby build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",

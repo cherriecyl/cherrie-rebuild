@@ -22,9 +22,9 @@ const SectionProblemSpace = ({ input }) => (
                   <div className="brown" dangerouslySetInnerHTML={ { __html: item.body_text.html} } />
               </TextBox>
           ))}</>}
-          {input.primary.header_image.url == null ? 
+          {/* {input.primary.header_image.url == null ? 
             ``
-            :<Lightbox boxClass="grid8L start3L grid12T start1T spaceAbove" imgClass="centerCaption" lbBkg="clear" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} aria-hidden="true"/>}
+            :<Lightbox boxClass="grid8L start3L grid12T start1T spaceAbove" imgClass="centerCaption" lbBkg="clear" src={input.primary.header_image.localFile.childImageSharp.fluid} alt={input.primary.header_image.alt} aria-hidden="true"/>} */}
     </GridWrap>
   </ProjectSection>
   </>
